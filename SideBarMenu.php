@@ -35,6 +35,9 @@ $wgMyExtensionIncludes = dirname(__FILE__) . '/includes';
 $wgAutoloadClasses['MenuParser'] = $wgMyExtensionIncludes . '/MenuParser.php';
 $wgAutoloadClasses['MenuItem'] = $wgMyExtensionIncludes . '/MenuItem.php';
 
+//i18n
+$wgExtensionMessagesFiles['SideBarMenu'] = dirname( __FILE__ ) . '/SideBarMenu.i18n.php';
+
 //Resources
 $wgResourceModules['ext.sidebarmenu.core'] = array(
     'scripts' => array(
@@ -44,7 +47,9 @@ $wgResourceModules['ext.sidebarmenu.core'] = array(
         'css/ext.sidebarmenu.css'
     ),
     'dependencies' => array (
-        'jquery.ui.core'
+        'jquery.ui.core',
+        'jquery.effects.core',
+
     ),
     'group' => 'ext.sidebarmenu',
     'localBasePath' => dirname( __FILE__ ),
@@ -52,5 +57,5 @@ $wgResourceModules['ext.sidebarmenu.core'] = array(
 );
 
 //default settings
-$wgSideBarMenuConfigShowHTML = '[show]';
-$wgSideBarMenuConfigHideHTML = '[hide]';
+$wgSideBarMenuConfigShowHTML = null;
+$wgSideBarMenuConfigHideHTML = null;

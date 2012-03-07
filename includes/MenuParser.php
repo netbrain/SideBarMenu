@@ -1,11 +1,6 @@
 <?php
 class MenuParser {
 
-    public static function isRoot($line)
-    {
-        return !self::startsWith($line, '*');
-    }
-
     public static function isValidInput($data)
     {
         return !(is_null($data) || strlen($data) == 0);
@@ -77,7 +72,7 @@ class MenuParser {
                 $levelArray[$level][] = $line;
             }else{
                 //syntax error
-                throw new InvalidArgumentException();
+                throw new InvalidArgumentException(wfMsg('parser.syntax-error',$line));
             }
             $prevLevel = $level;
         }

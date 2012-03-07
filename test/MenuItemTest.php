@@ -69,7 +69,7 @@ class MenuItemTest extends MediaWikiTestCase
         $menuItemChild->setText("MenuItem1");
         $this->menuItem->addChild($menuItemChild);
         $html = $this->menuItem->toHTML();
-        $this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</div></li></ul>',$html);
+        $this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>',$html);
     }
 
     public function testToHTMLOnSeveralMenuItems(){
@@ -82,7 +82,7 @@ class MenuItemTest extends MediaWikiTestCase
         $this->menuItem->addChild($menuItemChild2);
 
         $html = $this->menuItem->toHTML();
-        $this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</div></li><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</div></li></ul>',$html);
+        $this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</span></div></li></ul>',$html);
     }
 
     public function testToHTMLOnSeveralMenuItemsWithSublevels(){
@@ -99,6 +99,6 @@ class MenuItemTest extends MediaWikiTestCase
         $subLevel1->setParent($menuItemChild2);
 
         $html = $this->menuItem->toHTML();
-        $this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</div></li><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</div></li></ul></li></ul>',$html);
+        $this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</span><span class="sidebar-menu-item-controls"></span></div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</span></div></li></ul></li></ul>',$html);
     }
 }

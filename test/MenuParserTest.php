@@ -15,16 +15,6 @@ class MenuParserTest extends MediaWikiTestCase
         $this->assertTrue(MenuParser::isValidInput("+MenuItem"));
     }
 
-    public function testIsRoot(){
-        $isRoot = MenuParser::isRoot("MenuItem");
-        $this->assertTrue($isRoot);
-    }
-
-    public function testIsNotRoot(){
-        $isRoot = MenuParser::isRoot("*MenuItem");
-        $this->assertFalse($isRoot);
-    }
-
     public function testGetLevelWhenNull(){
         $this->assertEquals(0,MenuParser::getLevel(null));
     }

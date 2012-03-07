@@ -17,7 +17,7 @@ class SideBarMenuHooks
             return $parser->recursiveTagParse($menuHTML,$frame);
         }catch(Exception $x){
             wfDebug("An error occured during parsing of: '$input' caught exception: $x");
-            return "FATAL ERROR: Could not parse the following input:</br><pre>$input</pre>";
+            return wfMsg('parser.input-error',$x->getMessage());
         }
     }
 
@@ -40,8 +40,8 @@ class SideBarMenuHooks
 
     public static function javascriptConfigVars(&$vars){
         global $wgSideBarMenuConfigShowHTML,$wgSideBarMenuConfigHideHTML;
-        $vars['wgSideBarMenuConfigShowHTML'] = $wgSideBarMenuConfigShowHTML;
-        $vars['wgSideBarMenuConfigHideHTML'] = $wgSideBarMenuConfigHideHTML;
+        $vars['wgSideBarMenuConfigShowHTML'] = isset($wgSideBarMenuConfigShowHTML) ? $wgSideBarMenuConfigShowHTML : wfMsg('controls.show');
+        $vars['wgSideBarMenuConfigHideHTML'] = isset($wgSideBarMenuConfigHideHTML) ? $wgSideBarMenuConfigHideHTML : wfMsg('controls.hide');
         return true;
     }
 
