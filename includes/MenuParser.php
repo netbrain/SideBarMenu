@@ -81,7 +81,7 @@ class MenuParser {
                 $levelArray[$level][] = $line;
             }else{
                 //syntax error
-                throw new InvalidArgumentException(wfMsg('parser.syntax-error',$line));
+                throw new InvalidArgumentException(wfMsg('sidebarmenu-parser.syntax-error',$line));
             }
             $prevLevel = $level;
         }

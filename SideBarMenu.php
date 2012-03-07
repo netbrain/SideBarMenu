@@ -23,7 +23,7 @@ $wgExtensionCredits['parserhook'][] = array(
     'version' => 0.1,
     'author' => 'Kim Eik',
     'url' => 'https://www.mediawiki.org/wiki/Extension:SideBarMenu',
-    'descriptionmsg' => 'A simple sidebar menu parser which creates collapsable/expandable menus and sub-menus.'
+    'descriptionmsg' => 'sidebarmenu-extension.description'
 );
 
 

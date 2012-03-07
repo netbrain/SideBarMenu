@@ -21,7 +21,7 @@ class SideBarMenuHooks
             $output .= $menuParser->getMenuTree($input)->toHTML();
         }catch(Exception $x){
             wfDebug("An error occured during parsing of: '$input' caught exception: $x");
-            return wfMsg('parser.input-error',$x->getMessage());
+            return wfMsg('sidebarmenu-parser.input-error',$x->getMessage());
         }
         $output .= '</div>';
 
@@ -83,8 +83,8 @@ class SideBarMenuHooks
     {
         global $wgSideBarMenuConfig;
         $config[SBM_EXPANDED] = array_key_exists(SBM_EXPANDED, $args) ? filter_var($args[SBM_EXPANDED], FILTER_VALIDATE_BOOLEAN) : $wgSideBarMenuConfig[SBM_EXPANDED];
-        $config[SBM_CONTROLS_SHOW] = array_key_exists(SBM_CONTROLS_SHOW, $args) ? $args[SBM_CONTROLS_SHOW] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_SHOW]) ? $wgSideBarMenuConfig[SBM_CONTROLS_SHOW] : wfMsg(SBM_CONTROLS_SHOW));
-        $config[SBM_CONTROLS_HIDE] = array_key_exists(SBM_CONTROLS_HIDE, $args) ? $args[SBM_CONTROLS_HIDE] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_HIDE]) ? $wgSideBarMenuConfig[SBM_CONTROLS_HIDE] : wfMsg(SBM_CONTROLS_HIDE));
+        $config[SBM_CONTROLS_SHOW] = array_key_exists(SBM_CONTROLS_SHOW, $args) ? $args[SBM_CONTROLS_SHOW] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_SHOW]) ? $wgSideBarMenuConfig[SBM_CONTROLS_SHOW] : '['.wfMsg('showtoc').']');
+        $config[SBM_CONTROLS_HIDE] = array_key_exists(SBM_CONTROLS_HIDE, $args) ? $args[SBM_CONTROLS_HIDE] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_HIDE]) ? $wgSideBarMenuConfig[SBM_CONTROLS_HIDE] : '['.wfMsg('hidetoc').']');
         $config[SBM_JS_ANIMATE] = array_key_exists(SBM_JS_ANIMATE, $args) ? $args[SBM_JS_ANIMATE] : $wgSideBarMenuConfig[SBM_JS_ANIMATE];
         return $config;
     }
