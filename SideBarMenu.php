@@ -20,9 +20,6 @@ $wgHooks['ParserFirstCallInit'][] = 'SideBarMenuHooks::init';
 // Specify the function that will register the magic words for the parser function.
 $wgHooks['LanguageGetMagic'][] = 'SideBarMenuHooks::registerMagicWords';
 
-// Javascript variables
-$wgHooks['ResourceLoaderGetConfigVars'][] = 'SideBarMenuHooks::javascriptConfigVars';
-
 // Sepcify phpunit tests
 $wgHooks['UnitTestsList'][] = 'SideBarMenuHooks::registerUnitTests';
 
@@ -51,11 +48,15 @@ $wgResourceModules['ext.sidebarmenu.core'] = array(
         'jquery.effects.core',
 
     ),
+    'messages' => array(
+        'js.init-error'
+    ),
     'group' => 'ext.sidebarmenu',
     'localBasePath' => dirname( __FILE__ ),
     'remoteExtPath' => 'SideBarMenu'
 );
 
 //default settings
-$wgSideBarMenuConfigShowHTML = null;
-$wgSideBarMenuConfigHideHTML = null;
+$wgSideBarMenuConfig['controls.show'] = null;
+$wgSideBarMenuConfig['controls.hide']= null;
+$wgSideBarMenuConfig['js.animate'] = true;

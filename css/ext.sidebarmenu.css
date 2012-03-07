@@ -11,7 +11,7 @@
     display: none;
 }
 .sidebar-menu-item-expanded {
-    display: block;
+    display: list-item;
 }
 
 .sidebar-menu-0,.sidebar-menu-1{
