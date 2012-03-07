@@ -32,6 +32,6 @@ $(document).ready(function(){
             }
         });
     }else{
-        $('.sidebar-menu-container').prepend(mw.msg('js.init-error'));
+        $('.sidebar-menu-container').prepend(mw.msg('sidebar-js-init-error'));
     }
 });

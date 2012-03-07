@@ -62,7 +62,7 @@ $wgResourceModules['ext.sidebarmenu.core'] = array(
 
     ),
     'messages' => array(
-        'js.init-error'
+        'sidebarmenu-js-init-error'
     ),
     'group' => 'ext.sidebarmenu',
     'localBasePath' => dirname( __FILE__ ),

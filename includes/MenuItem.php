@@ -11,7 +11,7 @@ class MenuItem
     public function setExpanded($expanded)
     {
         if(is_null($expanded)){
-            throw new InvalidArgumentException(wfMsg('sidebarmenu-parser.menuitem.expanded.null'));
+            throw new InvalidArgumentException(wfMsg('sidebarmenu-parser-menuitem-expanded-null'));
         }else{
             $this->expanded = $expanded;
         }
