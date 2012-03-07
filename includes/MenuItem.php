@@ -7,6 +7,7 @@ class MenuItem
     private $parent = null;
     private $text;
 
+
     public function setExpanded($expanded)
     {
         $this->expanded = $expanded;
@@ -76,7 +77,25 @@ class MenuItem
         if($this->isRoot()){
             $output .= $this->childrenToHTML();
         }else{
-            $output .= "<li class=\"sidebar-menu-item sidebar-menu-item-".$this->getLevel().' '.($this->isExpanded() ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed')."\"><div class=\"sidebar-menu-item-text sidebar-menu-item-text-".$this->getLevel()."\">".$this->getText()."</div>";
+            $itemClasses[] = 'sidebar-menu-item';
+            $itemClasses[] = 'sidebar-menu-item-'.$this->getLevel();
+
+            if($this->hasChildren()){
+                $itemClasses[] = $this->isExpanded() ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed';
+            }
+
+            $textClasses[] = 'sidebar-menu-item-text';
+            $textClasses[] = 'sidebar-menu-item-text-'.$this->getLevel();
+
+            $output .= "<li class=\"".join(' ',$itemClasses)."\">";
+            $output .= "<div class=\"sidebar-menu-item-text-container\">";
+            $output .= "<span class=\"".join(' ',$textClasses)."\">".$this->getText()."</span>";
+
+            if($this->hasChildren()){
+                $output .= "<span class=\"sidebar-menu-item-controls\"></span>";
+            }
+
+            $output .= "</div>";
             $output .= $this->childrenToHTML();
             $output .= "</li>";
         }
@@ -87,7 +106,10 @@ class MenuItem
     private function childrenToHTML()
     {
         if($this->hasChildren()){
-            $output = "<ul class=\"sidebar-menu sidebar-menu-".$this->getLevel()."\">";
+            $menuClasses[] = 'sidebar-menu';
+            $menuClasses[] = 'sidebar-menu-'.$this->getLevel();
+
+            $output = "<ul class=\"".join(' ',$menuClasses)."\">";
             foreach ($this->getChildren() as $child) {
                 $output .= $child->toHTML();
             }

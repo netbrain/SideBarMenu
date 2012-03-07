@@ -15,49 +15,42 @@ $wgExtensionCredits['parserhook'][] = array(
 
 
 // Specify the function that will initialize the parser function.
-$wgHooks['ParserFirstCallInit'][] = 'init';
+$wgHooks['ParserFirstCallInit'][] = 'SideBarMenuHooks::init';
 
 // Specify the function that will register the magic words for the parser function.
-$wgHooks['LanguageGetMagic'][] = 'registerMagicWords';
+$wgHooks['LanguageGetMagic'][] = 'SideBarMenuHooks::registerMagicWords';
+
+// Javascript variables
+$wgHooks['ResourceLoaderGetConfigVars'][] = 'SideBarMenuHooks::javascriptConfigVars';
 
 // Sepcify phpunit tests
-$wgHooks['UnitTestsList'][] = 'registerUnitTests';
+$wgHooks['UnitTestsList'][] = 'SideBarMenuHooks::registerUnitTests';
 
-//Autoload
+//Autoload hooks
+$wgAutoloadClasses['SideBarMenuHooks'] = dirname( __FILE__ ) . '/SideBarMenu.hooks.php';
+
+//Autoload classes
 $wgMyExtensionIncludes = dirname(__FILE__) . '/includes';
 ## Special page class
 $wgAutoloadClasses['MenuParser'] = $wgMyExtensionIncludes . '/MenuParser.php';
 $wgAutoloadClasses['MenuItem'] = $wgMyExtensionIncludes . '/MenuItem.php';
 
+//Resources
+$wgResourceModules['ext.sidebarmenu.core'] = array(
+    'scripts' => array(
+        'js/ext.sidebarmenu.js'
+    ),
+    'styles' => array(
+        'css/ext.sidebarmenu.css'
+    ),
+    'dependencies' => array (
+        'jquery.ui.core'
+    ),
+    'group' => 'ext.sidebarmenu',
+    'localBasePath' => dirname( __FILE__ ),
+    'remoteExtPath' => 'SideBarMenu'
+);
 
-function init(&$parser){
-    $parser->setHook('sidebarmenu','renderFromTag');
-    return true;
-}
-
-function registerMagicWords(&$magicWords, $langCode){
-    $magicWords['sidebarmenu'] = array(0,'sidebarmenu');
-    return true;
-}
-
-function renderFromTag( $input, array $args, Parser $parser, PPFrame $frame ){
-    try{
-        $menuHTML = MenuParser::getMenuTree($input)->toHTML();
-        return $parser->recursiveTagParse($menuHTML,$frame);
-    }catch(Exception $x){
-        wfDebug("An error occured during parsing of: '$input' caught exception: $x");
-        return "FATAL ERROR: Could not parse the following input:</br><pre>$input</pre>";
-    }
-}
-
-function registerUnitTests( &$files ) {
-    $testDir = dirname( __FILE__ ) . '/test/';
-    $testFiles = scandir($testDir);
-    foreach($testFiles as $testFile){
-        $absoluteFile = $testDir . $testFile;
-        if(is_file($absoluteFile)){
-            $files[] = $absoluteFile;
-        }
-    }
-    return true;
-}
+//default settings
+$wgSideBarMenuConfigShowHTML = '[show]';
+$wgSideBarMenuConfigHideHTML = '[hide]';

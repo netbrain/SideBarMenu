@@ -1,0 +1,53 @@
+/* default SideBarMenu extension styling */
+
+.sidebar-menu-container{
+    padding: 5px;
+    float: left;
+    clear: left;
+}
+
+.sidebar-menu-item-collapsed  .sidebar-menu{
+    display: none;
+}
+
+.sidebar-menu-0,.sidebar-menu-1{
+    margin: 0px !important;
+    padding: 0px !important;
+    list-style: none;
+}
+
+
+.sidebar-menu-item-1{
+    margin: 10px 0px;
+    background-color: #f2f2f2;
+}
+
+.sidebar-menu-item-1 > .sidebar-menu-item-text-container{
+    border: 1px solid #aaa;
+    border-bottom: 0px;
+    padding: 3px;
+}
+
+.sidebar-menu-item-2{
+    background-color: #f9f9f9;
+    border: 1px solid #aaa;
+    border-bottom: 0px;
+    padding: 3px !important;
+    margin-bottom: 0px !important;
+}
+
+.sidebar-menu-item-text-container{
+    position: relative;
+}
+
+.sidebar-menu-item-controls{
+    float: right;
+    margin-left: 5px;
+    color: #0645AD;
+    cursor: pointer;
+}
+
+.sidebar-menu-item-1{
+    border-bottom: 1px solid #aaa;
+}
+
