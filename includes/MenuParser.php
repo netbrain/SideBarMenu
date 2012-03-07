@@ -45,6 +45,7 @@ class MenuParser {
             $this->addChildrenToMenuItemFromArrayData($root,$arrayData);
             return $root;
         }
+        return null;
     }
 
 
@@ -64,7 +65,6 @@ class MenuParser {
     public function parseDataIntoHierarchicalArray($data)
     {
         $rootArray = array();
-        $prevArray = &$rootArray;
         $prevLevel = 0;
         $levelArray[0] = &$rootArray;
         foreach(preg_split("/\n/",$data) as $line){
@@ -88,7 +88,7 @@ class MenuParser {
         return $rootArray;
     }
 
-    public function addChildrenToMenuItemFromArrayData(&$rootMenuItem,$arrayData)
+    public function addChildrenToMenuItemFromArrayData(MenuItem &$rootMenuItem,$arrayData)
     {
         foreach ($arrayData as $key => $val) {
             if (is_string($key)) {
@@ -109,11 +109,7 @@ class MenuParser {
     }
 
     private static function cleanupData($data){
-        for($x = 0; $x < 2; $x++){
-            $data = self::removeLineBreaksFromStartOfString($data);
-            $data = strrev($data);
-        }
-        return $data;
+        return trim($data,"\n ");
     }
 
     private static function removeLineBreaksFromStartOfString($data)
