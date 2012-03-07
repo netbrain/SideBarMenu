@@ -2,7 +2,7 @@
 
 class MenuItem
 {
-    private $expanded;
+    private $expanded = false;
     private $children = array();
     private $parent = null;
     private $text;
@@ -10,7 +10,11 @@ class MenuItem
 
     public function setExpanded($expanded)
     {
-        $this->expanded = $expanded;
+        if(is_null($expanded)){
+            throw new InvalidArgumentException();
+        }else{
+            $this->expanded = $expanded;
+        }
     }
 
     public function isExpanded()

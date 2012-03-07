@@ -4,6 +4,19 @@ if (!defined('MEDIAWIKI')) {
     die('Not an entry point.');
 }
 
+//SideBarMenu constants
+const SBM_EXPANDED = 'parser.menuitem.expanded';
+const SBM_CONTROLS_SHOW = 'controls.show';
+const SBM_CONTROLS_HIDE = 'controls.hide';
+const SBM_JS_ANIMATE = 'js.animate';
+
+
+//default settings
+$wgSideBarMenuConfig[SBM_CONTROLS_SHOW] = null;
+$wgSideBarMenuConfig[SBM_CONTROLS_HIDE]= null;
+$wgSideBarMenuConfig[SBM_JS_ANIMATE] = true;
+$wgSideBarMenuConfig[SBM_EXPANDED] = true;
+
 $wgExtensionCredits['parserhook'][] = array(
     'path' => __FILE__,
     'name' => 'SideBarMenu',
@@ -55,8 +68,3 @@ $wgResourceModules['ext.sidebarmenu.core'] = array(
     'localBasePath' => dirname( __FILE__ ),
     'remoteExtPath' => 'SideBarMenu'
 );
-
-//default settings
-$wgSideBarMenuConfig['controls.show'] = null;
-$wgSideBarMenuConfig['controls.hide']= null;
-$wgSideBarMenuConfig['js.animate'] = true;

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    if(sidebarmenu != undefined){
+    if(typeof(sidebarmenu) !== 'undefined'){
         var showText = sidebarmenu.config.controls.show;
         var hideText = sidebarmenu.config.controls.hide;
         var useAnimations = sidebarmenu.config.js.animate;

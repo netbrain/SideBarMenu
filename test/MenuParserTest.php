@@ -3,86 +3,95 @@
 class MenuParserTest extends MediaWikiTestCase
 {
 
+    private $menuParser;
+
+    protected function setUp()
+    {
+        $this->menuParser = new MenuParser(true);
+    }
+
     public function testValidInputWhenNull(){
-        $this->assertFalse(MenuParser::isValidInput(null));
+        $this->assertFalse($this->menuParser->isValidInput(null));
     }
 
     public function testValidInputWhenEmpty(){
-        $this->assertFalse(MenuParser::isValidInput(""));
+        $this->assertFalse($this->menuParser->isValidInput(""));
     }
 
     public function testValidInput(){
-        $this->assertTrue(MenuParser::isValidInput("+MenuItem"));
+        $this->assertTrue($this->menuParser->isValidInput("+MenuItem"));
     }
 
     public function testGetLevelWhenNull(){
-        $this->assertEquals(0,MenuParser::getLevel(null));
+        $this->assertEquals(0,$this->menuParser->getLevel(null));
     }
 
     public function testGetLevelWhenEmpty(){
-        $this->assertEquals(0,MenuParser::getLevel(""));
+        $this->assertEquals(0,$this->menuParser->getLevel(""));
     }
 
     public function testGetLevelWhenValidButNoStars(){
-        $this->assertEquals(0,MenuParser::getLevel(""));
+        $this->assertEquals(0,$this->menuParser->getLevel(""));
     }
 
     public function testGetLevelWithValid(){
-        $this->assertEquals(3,MenuParser::getLevel("***MenuItem"));
+        $this->assertEquals(3,$this->menuParser->getLevel("***MenuItem"));
     }
 
     public function testGetExpandedParameterWhenNoneSupplied(){
-        //default is false
-        $this->assertFalse(MenuParser::getExpandedParameter("MenuItem"));
+        $this->menuParser = new MenuParser(true);
+        $this->assertTrue($this->menuParser->getExpandedParameter("MenuItem"));
+        $this->menuParser = new MenuParser(false);
+        $this->assertFalse($this->menuParser->getExpandedParameter("MenuItem"));
     }
 
     public function testGetExpandedParameterWhenNotExpanded(){
-        $this->assertFalse(MenuParser::getExpandedParameter("-MenuItem"));
+        $this->assertFalse($this->menuParser->getExpandedParameter("-MenuItem"));
     }
 
     public function testGetExpandedParameterWhenExpanded(){
-        $this->assertTrue(MenuParser::getExpandedParameter("+MenuItem"));
+        $this->assertTrue($this->menuParser->getExpandedParameter("+MenuItem"));
     }
 
     public function testGetTextParameter(){
-        $this->assertEquals("MenuItem",MenuParser::getTextParameter("+***MenuItem"));
-        $this->assertEquals("+MenuItem",MenuParser::getTextParameter("+***+MenuItem"));
-        $this->assertEquals("MenuItem",MenuParser::getTextParameter("-MenuItem"));
-        $this->assertEquals("MenuItem",MenuParser::getTextParameter("-*MenuItem"));
-        $this->assertEquals("MenuItem",MenuParser::getTextParameter("MenuItem"));
-        $this->assertEquals("+*MenuItem",MenuParser::getTextParameter("+***+*MenuItem"));
+        $this->assertEquals("MenuItem",$this->menuParser->getTextParameter("+***MenuItem"));
+        $this->assertEquals("+MenuItem",$this->menuParser->getTextParameter("+***+MenuItem"));
+        $this->assertEquals("MenuItem",$this->menuParser->getTextParameter("-MenuItem"));
+        $this->assertEquals("MenuItem",$this->menuParser->getTextParameter("-*MenuItem"));
+        $this->assertEquals("MenuItem",$this->menuParser->getTextParameter("MenuItem"));
+        $this->assertEquals("+*MenuItem",$this->menuParser->getTextParameter("+***+*MenuItem"));
     }
 
     public function testGetMenuItemWhenInputIsNull(){
         $this->setExpectedException('InvalidArgumentException');
-        $this->assertNull(MenuParser::getMenuItem(null));
+        $this->assertNull($this->menuParser->getMenuItem(null));
     }
 
     public function testGetMenuItemWhenInputIsEmpty(){
         $this->setExpectedException('InvalidArgumentException');
-        $this->assertNull(MenuParser::getMenuItem(""));
+        $this->assertNull($this->menuParser->getMenuItem(""));
     }
 
     public function testGetMenuItemWhenInputIsValid(){
         $data = "MenuItem";
-        $menuItem = MenuParser::getMenuItem($data);
+        $menuItem = $this->menuParser->getMenuItem($data);
         $this->assertNotNull($menuItem);
         $this->assertEquals($data,$menuItem->getText());
-        $this->assertFalse($menuItem->isExpanded()); //false is default
+        $this->assertTrue($menuItem->isExpanded());
     }
 
     public function testGetMenuItemWhenInputIsValidAndExpandIsSet(){
         $text = "MenuItem";
         $data = "+".$text;
-        $menuItem = MenuParser::getMenuItem($data);
+        $menuItem = $this->menuParser->getMenuItem($data);
         $this->assertNotNull($menuItem);
         $this->assertEquals($text,$menuItem->getText());
-        $this->assertTrue($menuItem->isExpanded()); //false is default
+        $this->assertTrue($menuItem->isExpanded());
     }
 
     public function testParseDataIntoHierarchicalArray(){
         $data = "MenuItem";
-        $array = MenuParser::parseDataIntoHierarchicalArray($data);
+        $array = $this->menuParser->parseDataIntoHierarchicalArray($data);
         $this->assertNotNull($array);
         $this->assertEquals($data,$array[0]);
     }
@@ -90,7 +99,7 @@ class MenuParserTest extends MediaWikiTestCase
     public function testParseDataIntoHierarchicalArrayWithSubLevel(){
         $lines = array("MenuItem","*SubMenuItem");
         $data = join("\n",$lines);
-        $array = MenuParser::parseDataIntoHierarchicalArray($data);
+        $array = $this->menuParser->parseDataIntoHierarchicalArray($data);
         $this->assertNotNull($array);
         $this->assertArrayHasKey($lines[0],$array);
         $this->assertEquals(
@@ -105,7 +114,7 @@ class MenuParserTest extends MediaWikiTestCase
     public function testParseDataIntoHierarchicalArrayWithSeveralSubLevels(){
         $lines = array("MenuItem","*SubMenuItem","*SubMenuItem2","**SubMenuItemOf2");
         $data = join("\n",$lines);
-        $array = MenuParser::parseDataIntoHierarchicalArray($data);
+        $array = $this->menuParser->parseDataIntoHierarchicalArray($data);
         $this->assertNotNull($array);
         $this->assertEquals(
             array(
@@ -122,7 +131,7 @@ class MenuParserTest extends MediaWikiTestCase
     public function testParseDataIntoHierarchicalArrayWithSubLevelAndBack(){
         $lines = array("MenuItem","*SubMenuItem","MenuItem2");
         $data = join("\n",$lines);
-        $array = MenuParser::parseDataIntoHierarchicalArray($data);
+        $array = $this->menuParser->parseDataIntoHierarchicalArray($data);
         $this->assertNotNull($array);
         $this->assertEquals(
             array(
@@ -137,7 +146,7 @@ class MenuParserTest extends MediaWikiTestCase
     public function testParseDataIntoHierarchicalArrayWithSubLevelAndBackSeveralLevels(){
         $lines = array("MenuItem","*SubMenuItem1","**SubMenuItem2","***SubMenuItem3","MenuItem2");
         $data = join("\n",$lines);
-        $array = MenuParser::parseDataIntoHierarchicalArray($data);
+        $array = $this->menuParser->parseDataIntoHierarchicalArray($data);
         $this->assertNotNull($array);
         $this->assertEquals(
             array(
@@ -155,12 +164,12 @@ class MenuParserTest extends MediaWikiTestCase
 
 
     public function testGetMenuWithInvalidInput(){
-        $this->assertNull(MenuParser::getMenuTree(null));
-        $this->assertNull(MenuParser::getMenuTree(""));
+        $this->assertNull($this->menuParser->getMenuTree(null));
+        $this->assertNull($this->menuParser->getMenuTree(""));
     }
 
     public function testGetMenuWithValidInput(){
-        $menu = MenuParser::getMenuTree("MenuItem");
+        $menu = $this->menuParser->getMenuTree("MenuItem");
         $this->assertNotNull($menu);
         $this->assertTrue($menu->isRoot());
         $this->assertEquals(1,sizeof($menu->getChildren()));
@@ -180,7 +189,7 @@ class MenuParserTest extends MediaWikiTestCase
             'MenuItem2',
             '*SubMenuItem1OfMenuItem2'
         );
-        $menu = MenuParser::getMenuTree(join("\n",$data));
+        $menu = $this->menuParser->getMenuTree(join("\n",$data));
         $this->assertNotNull($menu);
         $this->assertEquals(2,sizeof($menu->getChildren()));
 
@@ -193,7 +202,7 @@ class MenuParserTest extends MediaWikiTestCase
             '',
             ''
         );
-        $menu = MenuParser::getMenuTree(join("\n",$data));
+        $menu = $this->menuParser->getMenuTree(join("\n",$data));
         $this->assertNotNull($menu);
         $this->assertEquals(1,sizeof($menu->getChildren()));
 
