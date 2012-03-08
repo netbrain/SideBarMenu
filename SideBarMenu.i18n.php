@@ -20,13 +20,24 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
- *  @author Kim Eik
+ * @author Kim Eik
  */
 $messages['qqq'] = array(
-    'sidebarmenu-desc'                              => '{{desc}}',
-    'sidebarmenu-parser-input-error'                => '$1 is the error message returned',
-    'sidebarmenu-parser-syntax-error'               => '$1 is the line which failed to be parsed',
-    'sidebarmenu-js-init-error'                     => 'General error message',
-    'sidebarmenu-parser-menuitem-expanded-null'    => 'parser.menuitem.expanded is a configuration property'
+	'sidebarmenu-desc' => '{{desc}}',
+	'sidebarmenu-parser-input-error' => '$1 is the error message returned',
+	'sidebarmenu-parser-syntax-error' => '$1 is the line which failed to be parsed',
+	'sidebarmenu-js-init-error' => 'General error message',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'parser.menuitem.expanded is a configuration property',
+);
+
+/** German (Deutsch)
+ * @author Kghbln
+ */
+$messages['de'] = array(
+	'sidebarmenu-desc' => 'Ergänzt das Tag <code>&lt;sidebarmenu&gt;</code> zum Einbinden ausklappbarer Menüs und Untermenüs in die Seitenleiste',
+	'sidebarmenu-parser-input-error' => 'Der Parser hat den folgenden Fehler ausgegeben: $1',
+	'sidebarmenu-parser-syntax-error' => '„$1“ konnte nicht verarbeitet werden. Bitte sicherstellen, dass die Syntax richtig ist.',
+	'sidebarmenu-js-init-error' => 'Das Laden des JavaScripts ist gescheitert.',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Der Parameter „<code>parser.menuitem.expanded</code>“ sollte mit „true“ oder „false“ festgelegt sein. Stattdessen wurde nichts festgelegt.',
 );
 
