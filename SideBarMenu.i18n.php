@@ -74,6 +74,17 @@ $messages['fr'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" doit être true ou false, mais il est null.',
 );
 
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'sidebarmenu-desc' => 'Un simple analizador da barra lateral que crea menús e submenús que se poden contraer e expandir',
+	'sidebarmenu-parser-input-error' => 'O analizador devolveu o seguinte erro: $1',
+	'sidebarmenu-parser-syntax-error' => 'Non se puido analizar "$1"; asegúrese de que a sintaxe é correcta.',
+	'sidebarmenu-js-init-error' => 'Erro ao cargar os recursos do JavaScript.',
+	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" debe ter o valor "true" ou "false", pero ten "null".',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
@@ -123,5 +134,23 @@ $messages['mk'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Не можам да го предадам редот „$1“. Проверете дали синтаксата е исправна.',
 	'sidebarmenu-js-init-error' => 'Вчитувањето на ресурсите на JavaScript не успеа.',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Параметарот „parser.menuitem.expanded“ треба да има зададено „true“ или „false“, а моментално нема ништо.',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'sidebarmenu-desc' => 'Penghurai menu palang sisi yang ringkas dan membuat menu dan submenu lipat kembang',
+	'sidebarmenu-parser-input-error' => 'Penghurai dikembalikan dengan ralat: $1',
+	'sidebarmenu-parser-syntax-error' => '"$1" tidak dapat dihuraikan, sila pastikan sintaksnya betul.',
+	'sidebarmenu-js-init-error' => 'Sumber-sumber JavaScript gagal dimuatkan.',
+	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" mestilah benar (true) atau palsu (false), tetapi ia nol (null).',
+);
+
+/** Dutch (Nederlands)
+ * @author SPQRobin
+ */
+$messages['nl'] = array(
+	'sidebarmenu-parser-syntax-error' => 'Kon "$1" niet verwerken, zorg ervoor dat de syntax correct is.',
 );
 
