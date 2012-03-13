@@ -154,3 +154,25 @@ $messages['nl'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Kon "$1" niet verwerken, zorg ervoor dat de syntax correct is.',
 );
 
+/** Polish (Polski)
+ * @author BeginaFelicysym
+ */
+$messages['pl'] = array(
+	'sidebarmenu-desc' => 'Prosty parser dla menu paska bocznego, który tworzy zwijane/rozwijane menu i podmenu',
+	'sidebarmenu-parser-input-error' => 'Analizator zwrócił błąd: $1',
+	'sidebarmenu-parser-syntax-error' => 'Nie można przeanalizować "$1", upewnij się, że składnia jest poprawna.',
+	'sidebarmenu-js-init-error' => 'Nie powiodło się ładowanie zasobów z kodem JavaScript.',
+	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" powinien mieć wartość true lub false, zamiast tego jest pusty.',
+);
+
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Linforest
+ */
+$messages['zh-hans'] = array(
+	'sidebarmenu-desc' => '一个简单的，可用于创建可折叠式/可展开式菜单及子菜单的边栏菜单解析器',
+	'sidebarmenu-parser-input-error' => '解析器返回错误：$1',
+	'sidebarmenu-parser-syntax-error' => '无法解析"$1"，请确认语法是否正确。',
+	'sidebarmenu-js-init-error' => 'JavaScript资源加载失败。',
+	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded"应该为 true 或 false；相反，它却为空（null）。',
+);
+
