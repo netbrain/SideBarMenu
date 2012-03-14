@@ -21,13 +21,14 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Kim Eik
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'sidebarmenu-desc' => '{{desc}}',
 	'sidebarmenu-parser-input-error' => '$1 is the error message returned',
 	'sidebarmenu-parser-syntax-error' => '$1 is the line which failed to be parsed',
 	'sidebarmenu-js-init-error' => 'General error message',
-	'sidebarmenu-parser-menuitem-expanded-null' => 'parser.menuitem.expanded is a configuration property',
+	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" is a configuration property.',
 );
 
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
@@ -149,9 +150,14 @@ $messages['ms'] = array(
 
 /** Dutch (Nederlands)
  * @author SPQRobin
+ * @author Siebrand
  */
 $messages['nl'] = array(
+	'sidebarmenu-desc' => "Een eenvoudige menubalkparser waarmee in- en uiklapbare menu's en submenu's gemaakt kunnen worden",
+	'sidebarmenu-parser-input-error' => 'Er is een foutmelding uit de parser teruggekomen: $1',
 	'sidebarmenu-parser-syntax-error' => 'Kon "$1" niet verwerken, zorg ervoor dat de syntax correct is.',
+	'sidebarmenu-js-init-error' => 'Het laden van de JavaScriptbronnen is mislukt.',
+	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" moet waar of onwaar zijn. Deze is nu null.',
 );
 
 /** Polish (Polski)
