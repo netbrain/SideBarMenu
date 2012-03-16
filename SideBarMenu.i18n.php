@@ -155,7 +155,7 @@ $messages['ms'] = array(
 $messages['nl'] = array(
 	'sidebarmenu-desc' => "Een eenvoudige menubalkparser waarmee in- en uiklapbare menu's en submenu's gemaakt kunnen worden",
 	'sidebarmenu-parser-input-error' => 'Er is een foutmelding uit de parser teruggekomen: $1',
-	'sidebarmenu-parser-syntax-error' => 'Kon "$1" niet verwerken, zorg ervoor dat de syntax correct is.',
+	'sidebarmenu-parser-syntax-error' => 'Het was niet mogelijk om "$1" te verwerken. Zorg ervoor dat de syntaxis correct is.',
 	'sidebarmenu-js-init-error' => 'Het laden van de JavaScriptbronnen is mislukt.',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" moet waar of onwaar zijn. Deze is nu null.',
 );
