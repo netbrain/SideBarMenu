@@ -123,7 +123,9 @@ $messages['ko'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'sidebarmenu-parser-input-error' => 'Parser-Feeler: $1',
 	'sidebarmenu-js-init-error' => 'De JavaScript konnt net geluede ginn.',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'De Parameter „<code>parser.menuitem.expanded</code>“ solle entweder „true“ oder „false“ sinn. En ass awer eidel (null).',
 );
 
 /** Macedonian (Македонски)
