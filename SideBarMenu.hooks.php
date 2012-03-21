@@ -20,7 +20,7 @@ class SideBarMenuHooks
             $menuParser = new MenuParser($config[SBM_EXPANDED]);
             $output .= $menuParser->getMenuTree($input)->toHTML();
         }catch(Exception $x){
-            wfDebug("An error occurred during parsing of: '$input' caught exception: $x");
+            wfDebug("An error occured during parsing of: '$input' caught exception: $x");
             return wfMsg('sidebarmenu-parser.input-error',$x->getMessage());
         }
         $output .= '</div>';
