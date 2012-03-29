@@ -21,7 +21,7 @@ class SideBarMenuHooks
             $output .= $parser->recursiveTagParse($menuParser->getMenuTree($input)->toHTML(),$frame);
         }catch(Exception $x){
             wfDebug("An error occured during parsing of: '$input' caught exception: $x");
-            return wfMsg('sidebarmenu-parser.input-error',$x->getMessage());
+            return wfMsg('sidebarmenu-parser-input-error',$x->getMessage());
         }
         if($config[SBM_EDIT_LINK]){
 			$output .=  Linker::link($frame->getTitle(),wfMsg('sidebarmenu-edit'),array('title' => wfMsg('sidebarmenu-edit')),array('action' => 'edit'));
