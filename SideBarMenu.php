@@ -9,7 +9,7 @@ const SBM_EXPANDED = 'parser.menuitem.expanded';
 const SBM_CONTROLS_SHOW = 'controls.show';
 const SBM_CONTROLS_HIDE = 'controls.hide';
 const SBM_JS_ANIMATE = 'js.animate';
-const SBM_EDIT_LINK = 'edit';
+const SBM_EDIT_LINK = 'editlink';
 
 
 //default settings

@@ -3,7 +3,6 @@
 class SideBarMenuHooks
 {
 
-
     public static function init(Parser &$parser){
         $parser->setHook('sidebarmenu','SideBarMenuHooks::renderFromTag');
         return true;
@@ -89,7 +88,7 @@ class SideBarMenuHooks
         $config[SBM_CONTROLS_SHOW] = array_key_exists(SBM_CONTROLS_SHOW, $args) ? $args[SBM_CONTROLS_SHOW] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_SHOW]) ? $wgSideBarMenuConfig[SBM_CONTROLS_SHOW] : '['.wfMsg('showtoc').']');
         $config[SBM_CONTROLS_HIDE] = array_key_exists(SBM_CONTROLS_HIDE, $args) ? $args[SBM_CONTROLS_HIDE] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_HIDE]) ? $wgSideBarMenuConfig[SBM_CONTROLS_HIDE] : '['.wfMsg('hidetoc').']');
         $config[SBM_JS_ANIMATE] = array_key_exists(SBM_JS_ANIMATE, $args) ? $args[SBM_JS_ANIMATE] : $wgSideBarMenuConfig[SBM_JS_ANIMATE];
-        $config[SBM_EDIT_LINK] = array_key_exists(SBM_EDIT_LINK, $args) ? $args[SBM_EDIT_LINK] : $wgSideBarMenuConfig[SBM_EDIT_LINK];
+        $config[SBM_EDIT_LINK] = array_key_exists(SBM_EDIT_LINK, $args) ? filter_var($args[SBM_EDIT_LINK], FILTER_VALIDATE_BOOLEAN)  : $wgSideBarMenuConfig[SBM_EDIT_LINK];
         return $config;
     }
 }
