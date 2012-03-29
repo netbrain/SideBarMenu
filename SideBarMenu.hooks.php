@@ -18,16 +18,19 @@ class SideBarMenuHooks
         $output = '<div class="sidebar-menu-container">';
         try{
             $menuParser = new MenuParser($config[SBM_EXPANDED]);
-            $output .= $menuParser->getMenuTree($input)->toHTML();
+            $output .= $parser->recursiveTagParse($menuParser->getMenuTree($input)->toHTML(),$frame);
         }catch(Exception $x){
             wfDebug("An error occured during parsing of: '$input' caught exception: $x");
             return wfMsg('sidebarmenu-parser.input-error',$x->getMessage());
         }
+        if($config[SBM_EDIT_LINK]){
+			$output .=  Linker::link($frame->getTitle(),wfMsg('sidebarmenu-edit'),array('title' => wfMsg('sidebarmenu-edit')),array('action' => 'edit'));
+		}
         $output .= '</div>';
 
         $jsOutput = self::getJSConfig($config);
 
-        return array( $jsOutput.$parser->recursiveTagParse($output,$frame), 'noparse' => true, 'isHTML' => true );
+        return array( $jsOutput.$output, 'noparse' => true, 'isHTML' => true );
     }
 
     public static function registerUnitTests( &$files ) {
@@ -86,6 +89,7 @@ class SideBarMenuHooks
         $config[SBM_CONTROLS_SHOW] = array_key_exists(SBM_CONTROLS_SHOW, $args) ? $args[SBM_CONTROLS_SHOW] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_SHOW]) ? $wgSideBarMenuConfig[SBM_CONTROLS_SHOW] : '['.wfMsg('showtoc').']');
         $config[SBM_CONTROLS_HIDE] = array_key_exists(SBM_CONTROLS_HIDE, $args) ? $args[SBM_CONTROLS_HIDE] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_HIDE]) ? $wgSideBarMenuConfig[SBM_CONTROLS_HIDE] : '['.wfMsg('hidetoc').']');
         $config[SBM_JS_ANIMATE] = array_key_exists(SBM_JS_ANIMATE, $args) ? $args[SBM_JS_ANIMATE] : $wgSideBarMenuConfig[SBM_JS_ANIMATE];
+        $config[SBM_EDIT_LINK] = array_key_exists(SBM_EDIT_LINK, $args) ? $args[SBM_EDIT_LINK] : $wgSideBarMenuConfig[SBM_EDIT_LINK];
         return $config;
     }
 }

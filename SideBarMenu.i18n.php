@@ -16,7 +16,8 @@ $messages['en'] = array(
     'sidebarmenu-parser-input-error'                => 'Parser returned with error: $1',
     'sidebarmenu-parser-syntax-error'               => 'Could not parse "$1", make sure the syntax is correct.',
     'sidebarmenu-js-init-error'                     => 'Failed loading JavaScript resources.',
-    'sidebarmenu-parser-menuitem-expanded-null'     => '"parser.menuitem.expanded" should be true or false, instead it is null.'
+    'sidebarmenu-parser-menuitem-expanded-null'     => '"parser.menuitem.expanded" should be true or false, instead it is null.',
+    'sidebarmenu-edit'								=> 'Edit'
 );
 
 /** Message documentation (Message documentation)
@@ -29,6 +30,7 @@ $messages['qqq'] = array(
 	'sidebarmenu-parser-syntax-error' => '$1 is the line which failed to be parsed',
 	'sidebarmenu-js-init-error' => 'General error message',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" is a configuration property.',
+	'sidebarmenu-edit' => 'The text/html of the edit link',
 );
 
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)

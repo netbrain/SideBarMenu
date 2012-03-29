@@ -9,6 +9,7 @@ const SBM_EXPANDED = 'parser.menuitem.expanded';
 const SBM_CONTROLS_SHOW = 'controls.show';
 const SBM_CONTROLS_HIDE = 'controls.hide';
 const SBM_JS_ANIMATE = 'js.animate';
+const SBM_EDIT_LINK = 'edit';
 
 
 //default settings
@@ -16,6 +17,7 @@ $wgSideBarMenuConfig[SBM_CONTROLS_SHOW] = null;
 $wgSideBarMenuConfig[SBM_CONTROLS_HIDE]= null;
 $wgSideBarMenuConfig[SBM_JS_ANIMATE] = true;
 $wgSideBarMenuConfig[SBM_EXPANDED] = true;
+$wgSideBarMenuConfig[SBM_EDIT_LINK] = true;
 
 $wgExtensionCredits['parserhook'][] = array(
     'path' => __FILE__,
