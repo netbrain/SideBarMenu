@@ -9,15 +9,15 @@
 $messages = array();
 
 /** English
- *  @author Kim Eik
+ * @author Kim Eik
  */
 $messages['en'] = array(
-    'sidebarmenu-desc'                              => 'A simple sidebar menu parser which creates collapsable/expandable menus and sub-menus',
-    'sidebarmenu-parser-input-error'                => 'Parser returned with error: $1',
-    'sidebarmenu-parser-syntax-error'               => 'Could not parse "$1", make sure the syntax is correct.',
-    'sidebarmenu-js-init-error'                     => 'Failed loading JavaScript resources.',
-    'sidebarmenu-parser-menuitem-expanded-null'     => '"parser.menuitem.expanded" should be true or false, instead it is null.',
-    'sidebarmenu-edit'								=> 'Edit'
+	'sidebarmenu-desc' => 'A simple sidebar menu parser which creates collapsable/expandable menus and sub-menus',
+	'sidebarmenu-parser-input-error' => 'Parser returned with error: $1',
+	'sidebarmenu-parser-syntax-error' => 'Could not parse "$1", make sure the syntax is correct.',
+	'sidebarmenu-js-init-error' => 'Failed loading JavaScript resources.',
+	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" should be true or false, instead it is null.',
+	'sidebarmenu-edit' => 'Edit'
 );
 
 /** Message documentation (Message documentation)

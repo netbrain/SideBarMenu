@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('MEDIAWIKI')) {
-    die('Not an entry point.');
+	die('Not an entry point.');
 }
 
 //SideBarMenu constants
@@ -14,18 +14,18 @@ const SBM_EDIT_LINK = 'editlink';
 
 //default settings
 $wgSideBarMenuConfig[SBM_CONTROLS_SHOW] = null;
-$wgSideBarMenuConfig[SBM_CONTROLS_HIDE]= null;
+$wgSideBarMenuConfig[SBM_CONTROLS_HIDE] = null;
 $wgSideBarMenuConfig[SBM_JS_ANIMATE] = true;
 $wgSideBarMenuConfig[SBM_EXPANDED] = true;
 $wgSideBarMenuConfig[SBM_EDIT_LINK] = true;
 
 $wgExtensionCredits['parserhook'][] = array(
-    'path' => __FILE__,
-    'name' => 'SideBarMenu',
-    'version' => 0.1,
-    'author' => 'Kim Eik',
-    'url' => 'https://www.mediawiki.org/wiki/Extension:SideBarMenu',
-    'descriptionmsg' => 'sidebarmenu-desc'
+	'path' => __FILE__,
+	'name' => 'SideBarMenu',
+	'version' => 0.1,
+	'author' => 'Kim Eik',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:SideBarMenu',
+	'descriptionmsg' => 'sidebarmenu-desc'
 );
 
 
@@ -39,7 +39,7 @@ $wgHooks['LanguageGetMagic'][] = 'SideBarMenuHooks::registerMagicWords';
 $wgHooks['UnitTestsList'][] = 'SideBarMenuHooks::registerUnitTests';
 
 //Autoload hooks
-$wgAutoloadClasses['SideBarMenuHooks'] = dirname( __FILE__ ) . '/SideBarMenu.hooks.php';
+$wgAutoloadClasses['SideBarMenuHooks'] = dirname(__FILE__) . '/SideBarMenu.hooks.php';
 
 //Autoload classes
 $wgMyExtensionIncludes = dirname(__FILE__) . '/includes';
@@ -48,25 +48,25 @@ $wgAutoloadClasses['MenuParser'] = $wgMyExtensionIncludes . '/MenuParser.php';
 $wgAutoloadClasses['MenuItem'] = $wgMyExtensionIncludes . '/MenuItem.php';
 
 //i18n
-$wgExtensionMessagesFiles['SideBarMenu'] = dirname( __FILE__ ) . '/SideBarMenu.i18n.php';
+$wgExtensionMessagesFiles['SideBarMenu'] = dirname(__FILE__) . '/SideBarMenu.i18n.php';
 
 //Resources
 $wgResourceModules['ext.sidebarmenu.core'] = array(
-    'scripts' => array(
-        'js/ext.sidebarmenu.js'
-    ),
-    'styles' => array(
-        'css/ext.sidebarmenu.css'
-    ),
-    'dependencies' => array (
-        'jquery.ui.core',
-        'jquery.effects.core',
+	'scripts' => array(
+		'js/ext.sidebarmenu.js'
+	),
+	'styles' => array(
+		'css/ext.sidebarmenu.css'
+	),
+	'dependencies' => array(
+		'jquery.ui.core',
+		'jquery.effects.core',
 
-    ),
-    'messages' => array(
-        'sidebarmenu-js-init-error'
-    ),
-    'group' => 'ext.sidebarmenu',
-    'localBasePath' => dirname( __FILE__ ),
-    'remoteExtPath' => 'SideBarMenu'
+	),
+	'messages' => array(
+		'sidebarmenu-js-init-error'
+	),
+	'group' => 'ext.sidebarmenu',
+	'localBasePath' => dirname(__FILE__),
+	'remoteExtPath' => 'SideBarMenu'
 );

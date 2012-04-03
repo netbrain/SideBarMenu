@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    if(typeof(sidebarmenu) !== 'undefined'){
+$(document).ready(function () {
+    if (typeof(sidebarmenu) !== 'undefined') {
         var showText = sidebarmenu.config.controls.show;
         var hideText = sidebarmenu.config.controls.hide;
         var useAnimations = sidebarmenu.config.js.animate;
@@ -10,28 +10,28 @@ $(document).ready(function(){
         }
 
         initControls();
-        $('.sidebar-menu-item-controls').click(function(){
+        $('.sidebar-menu-item-controls').click(function () {
             var currentText = $(this).text();
 
-            if(currentText == showText){
+            if (currentText == showText) {
                 $(this).text(hideText);
-            }else if(currentText == hideText){
+            } else if (currentText == hideText) {
                 $(this).text(showText);
             }
 
-            if(useAnimations){
-            //A little "ugly" hack to prevent some gui glitches.
-            $(this).parents('.sidebar-menu-item:first').toggleClass('sidebar-menu-item-collapsed sidebar-menu-item-expanded',250).children('.sidebar-menu').show(0,function(){
+            if (useAnimations) {
+                //A little "ugly" hack to prevent some gui glitches.
+                $(this).parents('.sidebar-menu-item:first').toggleClass('sidebar-menu-item-collapsed sidebar-menu-item-expanded', 250).children('.sidebar-menu').show(0, function () {
                     var _this = $(this);
-                    setTimeout(function(){
-                        _this.css('display','')
-                    },250);
+                    setTimeout(function () {
+                        _this.css('display', '')
+                    }, 250);
                 });
-            }else{
+            } else {
                 $(this).parents('.sidebar-menu-item:first').toggleClass('sidebar-menu-item-collapsed sidebar-menu-item-expanded');
             }
         });
-    }else{
+    } else {
         $('.sidebar-menu-container').prepend(mw.msg('sidebar-js-init-error'));
     }
 });
