@@ -5,6 +5,7 @@ class MenuItem {
 	private $children = array();
 	private $parent = null;
 	private $text;
+	private $style;
 
 
 	public function setExpanded($expanded) {
@@ -77,10 +78,15 @@ class MenuItem {
 				$itemClasses[] = $this->isExpanded() ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed';
 			}
 
+
+			if($this->hasStyle()){
+
+			}
+
 			$textClasses[] = 'sidebar-menu-item-text';
 			$textClasses[] = 'sidebar-menu-item-text-' . $this->getLevel();
 
-			$output .= "<li class=\"" . join(' ', $itemClasses) . "\">";
+			$output .= "<li class=\"" . join(' ', $itemClasses) . "\"".($this->hasStyle() ? " style=\"{$this->getStyle()}\"" : '').">";
 			$output .= "<div class=\"sidebar-menu-item-text-container\">";
 			$output .= "<span class=\"" . join(' ', $textClasses) . "\">" . $this->getText() . "</span>";
 
@@ -108,6 +114,18 @@ class MenuItem {
 			$output .= "</ul>";
 			return $output;
 		}
+	}
+
+	public function getStyle() {
+		return $this->style;
+	}
+
+	public function setStyle($style) {
+		$this->style = $style;
+	}
+
+	public function hasStyle(){
+		return isset($this->style) && $this->style !== '';
 	}
 
 }

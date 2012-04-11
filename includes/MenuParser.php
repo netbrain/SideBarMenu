@@ -29,7 +29,11 @@ class MenuParser {
 	}
 
 	public function getTextParameter($line) {
-		return preg_filter("/\+|\-?\**(.*)/", "$1", $line);
+		return preg_filter("/\+|\-?\**([^\|]*)\|?.*/", "$1", $line);
+	}
+
+	public function getStyleParameter($line){
+		return preg_filter("/.*?\|style=(.*)\|?/","$1",$line);
 	}
 
 
@@ -52,6 +56,7 @@ class MenuParser {
 			$menuItem = new MenuItem();
 			$menuItem->setExpanded($this->getExpandedParameter($line));
 			$menuItem->setText($this->getTextParameter($line));
+			$menuItem->setStyle($this->getStyleParameter($line));
 			return $menuItem;
 		} else {
 			throw new InvalidArgumentException();

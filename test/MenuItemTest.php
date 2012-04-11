@@ -99,4 +99,14 @@ class MenuItemTest extends MediaWikiTestCase {
 		$html = $this->menuItem->toHTML();
 		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</span><span class="sidebar-menu-item-controls"></span></div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</span></div></li></ul></li></ul>', $html);
 	}
+
+
+	public function testToHTMLOnMenuItemWithStyling(){
+		$menuItemChild = new MenuItem();
+		$menuItemChild->setText("MenuItem1");
+		$menuItemChild->setStyle('color: red;');
+		$this->menuItem->addChild($menuItemChild);
+		$html = $this->menuItem->toHTML();
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1" style="color: red;"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>',$html);
+	}
 }
