@@ -5,7 +5,8 @@ class MenuItem {
 	private $children = array();
 	private $parent = null;
 	private $text;
-	private $style;
+	private $customCSSStyle;
+	private $customCSSClasses;
 
 
 	public function setExpanded($expanded) {
@@ -78,15 +79,14 @@ class MenuItem {
 				$itemClasses[] = $this->isExpanded() ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed';
 			}
 
-
-			if($this->hasStyle()){
-
+			if($this->hasCustomCSSClasses()){
+				$itemClasses[] = $this->getCustomCSSClasses();
 			}
 
 			$textClasses[] = 'sidebar-menu-item-text';
 			$textClasses[] = 'sidebar-menu-item-text-' . $this->getLevel();
 
-			$output .= "<li class=\"" . join(' ', $itemClasses) . "\"".($this->hasStyle() ? " style=\"{$this->getStyle()}\"" : '').">";
+			$output .= "<li class=\"" . join(' ', $itemClasses) . "\"".($this->hasCustomCSSStyle() ? " style=\"{$this->getCustomCSSStyle()}\"" : '').">";
 			$output .= "<div class=\"sidebar-menu-item-text-container\">";
 			$output .= "<span class=\"" . join(' ', $textClasses) . "\">" . $this->getText() . "</span>";
 
@@ -116,16 +116,28 @@ class MenuItem {
 		}
 	}
 
-	public function getStyle() {
-		return $this->style;
+	public function getCustomCSSStyle() {
+		return $this->customCSSStyle;
 	}
 
-	public function setStyle($style) {
-		$this->style = $style;
+	public function setCustomCSSStyle($style) {
+		$this->customCSSStyle = $style;
 	}
 
-	public function hasStyle(){
-		return isset($this->style) && $this->style !== '';
+	public function hasCustomCSSStyle(){
+		return isset($this->customCSSStyle) && $this->customCSSStyle !== '';
+	}
+
+	public function getCustomCSSClasses() {
+		return $this->customCSSClasses;
+	}
+
+	public function setCustomCSSClasses($class) {
+		$this->customCSSClasses = $class;
+	}
+
+	public function hasCustomCSSClasses(){
+		return isset($this->customCSSClasses) && $this->customCSSClasses !== '';
 	}
 
 }

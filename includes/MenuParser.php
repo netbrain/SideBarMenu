@@ -36,6 +36,10 @@ class MenuParser {
 		return preg_filter("/.*?\|style=(.*)\|?/","$1",$line);
 	}
 
+	public function getClassParameter($line){
+		return preg_filter("/.*?\|class=(.*)\|?/","$1",$line);
+	}
+
 
 	public function getMenuTree($data) {
 		if ($this->isValidInput($data)) {
@@ -56,7 +60,8 @@ class MenuParser {
 			$menuItem = new MenuItem();
 			$menuItem->setExpanded($this->getExpandedParameter($line));
 			$menuItem->setText($this->getTextParameter($line));
-			$menuItem->setStyle($this->getStyleParameter($line));
+			$menuItem->setCustomCSSStyle($this->getStyleParameter($line));
+			$menuItem->setCustomCSSClasses($this->getClassParameter($line));
 			return $menuItem;
 		} else {
 			throw new InvalidArgumentException();

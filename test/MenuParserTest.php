@@ -215,7 +215,16 @@ class MenuParserTest extends MediaWikiTestCase {
 		);
 		$children = $this->menuParser->getMenuTree(join("\n", $data))->getChildren();
 		$this->assertEquals("MenuItem1",$children[0]->getText());
-		$this->assertEquals("color: red;", $children[0]->getStyle());
+		$this->assertEquals("color: red;", $children[0]->getCustomCSSStyle());
+	}
+
+	public function testIndividualElementClass() {
+		$data = array(
+			'MenuItem1|class=somecssclass anothercssclass',
+		);
+		$children = $this->menuParser->getMenuTree(join("\n", $data))->getChildren();
+		$this->assertEquals("MenuItem1",$children[0]->getText());
+		$this->assertEquals("somecssclass anothercssclass", $children[0]->getCustomCSSClasses());
 	}
 
 }

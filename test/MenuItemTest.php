@@ -104,9 +104,18 @@ class MenuItemTest extends MediaWikiTestCase {
 	public function testToHTMLOnMenuItemWithStyling(){
 		$menuItemChild = new MenuItem();
 		$menuItemChild->setText("MenuItem1");
-		$menuItemChild->setStyle('color: red;');
+		$menuItemChild->setCustomCSSStyle('color: red;');
 		$this->menuItem->addChild($menuItemChild);
 		$html = $this->menuItem->toHTML();
 		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1" style="color: red;"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>',$html);
+	}
+
+	public function testToHTMLOnMenuItemWithCustomClasses(){
+		$menuItemChild = new MenuItem();
+		$menuItemChild->setText("MenuItem1");
+		$menuItemChild->setCustomCSSClasses('testclass1 testclass2');
+		$this->menuItem->addChild($menuItemChild);
+		$html = $this->menuItem->toHTML();
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 testclass1 testclass2"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>',$html);
 	}
 }
