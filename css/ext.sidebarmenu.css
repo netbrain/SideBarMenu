@@ -21,6 +21,12 @@
     list-style: none;
 }
 
+.sidebar-menu-1 {
+    background-color: #f9f9f9;
+    border: 1px solid #aaa;
+    border-bottom: 0px;
+}
+
 .sidebar-menu-item-1 {
     margin: 10px 0px;
     background-color: #f2f2f2;
@@ -32,9 +38,11 @@
     padding: 3px;
 }
 
+.sidebar-menu-item-1 {
+    border-bottom: 1px solid #aaa;
+}
+
 .sidebar-menu-item-2 {
-    background-color: #f9f9f9;
-    border: 1px solid #aaa;
     border-bottom: 0px;
     padding: 3px !important;
     margin-bottom: 0px !important;
@@ -53,9 +61,5 @@
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
-}
-
-.sidebar-menu-item-1 {
-    border-bottom: 1px solid #aaa;
 }
 
