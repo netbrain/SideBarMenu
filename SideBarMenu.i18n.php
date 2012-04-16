@@ -101,6 +101,7 @@ $messages['hsb'] = array(
 	'sidebarmenu-parser-syntax-error' => '"$1" njeda so parsować, zawěsćće, zo syntaksa je korektna.',
 	'sidebarmenu-js-init-error' => 'Začitowanje JavaScriptowych resursow je so njeporadźiło.',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" dyrbjał hódnotu "true" abo "false" měć, Město toho  hódnota je nul.',
+	'sidebarmenu-edit' => 'Wobdźěłać',
 );
 
 /** Interlingua (Interlingua)
