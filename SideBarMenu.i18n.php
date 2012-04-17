@@ -17,7 +17,7 @@ $messages['en'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Could not parse "$1", make sure the syntax is correct.',
 	'sidebarmenu-js-init-error' => 'Failed loading JavaScript resources.',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" should be true or false, instead it is null.',
-	'sidebarmenu-edit' => 'Edit'
+	'sidebarmenu-edit' => 'Edit menu'
 );
 
 /** Message documentation (Message documentation)
