@@ -54,7 +54,7 @@ $messages['de'] = array(
 	'sidebarmenu-parser-syntax-error' => '„$1“ konnte nicht verarbeitet werden. Bitte sicherstellen, dass die Syntax richtig ist.',
 	'sidebarmenu-js-init-error' => 'Das Laden des JavaScripts ist gescheitert.',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Der Parameter „<code>parser.menuitem.expanded</code>“ sollte mit „true“ oder „false“ festgelegt sein. Stattdessen wurde nichts festgelegt.',
-	'sidebarmenu-edit' => 'Bearbeiten',
+	'sidebarmenu-edit' => 'Menü bearbeiten',
 );
 
 /** Spanish (Español)
@@ -66,7 +66,7 @@ $messages['es'] = array(
 	'sidebarmenu-parser-syntax-error' => 'No se pudo analizar "$1", asegúrese de que la sintaxis es correcta.',
 	'sidebarmenu-js-init-error' => 'Error al cargar recursos de JavaScript.',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" debe tener el valor "true" o "false", en vez de "null".',
-	'sidebarmenu-edit' => 'Editar',
+	'sidebarmenu-edit' => 'Editar el menú',
 );
 
 /** French (Français)
@@ -78,7 +78,7 @@ $messages['fr'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Impossible d\'analyser "$1", assurez-vous que la syntaxe est correcte.',
 	'sidebarmenu-js-init-error' => 'Échec au chargement des ressources JavaScript.',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" doit être true ou false, mais il est null.',
-	'sidebarmenu-edit' => 'Modifier',
+	'sidebarmenu-edit' => 'Modifier le menu',
 );
 
 /** Galician (Galego)
@@ -170,7 +170,7 @@ $messages['nl'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Het was niet mogelijk om "$1" te verwerken. Zorg ervoor dat de syntaxis correct is.',
 	'sidebarmenu-js-init-error' => 'Het laden van de JavaScriptbronnen is mislukt.',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" moet waar of onwaar zijn. Deze is nu null.',
-	'sidebarmenu-edit' => 'Bewerk',
+	'sidebarmenu-edit' => 'Bewerken',
 );
 
 /** Polish (Polski)
