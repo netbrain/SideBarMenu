@@ -22,7 +22,7 @@ class SideBarMenuHooks {
 			return wfMsg('sidebarmenu-parser-input-error', $x->getMessage());
 		}
 		if ($config[SBM_EDIT_LINK]) {
-			$output .= Linker::link($frame->getTitle(), wfMsg('sidebarmenu-edit'), array('title' => wfMsg('sidebarmenu-edit'),'class' => 'sidebar-menu-edit-link'), array('action' => 'edit'));
+			$output .= Linker::link($frame->getTitle(), wfMsg('sidebarmenu-edit'), array('title' => wfMsg('sidebarmenu-edit'), 'class' => 'sidebar-menu-edit-link'), array('action' => 'edit'));
 		}
 		$output .= '</div>';
 

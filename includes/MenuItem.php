@@ -79,14 +79,14 @@ class MenuItem {
 				$itemClasses[] = $this->isExpanded() ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed';
 			}
 
-			if($this->hasCustomCSSClasses()){
+			if ($this->hasCustomCSSClasses()) {
 				$itemClasses[] = $this->getCustomCSSClasses();
 			}
 
 			$textClasses[] = 'sidebar-menu-item-text';
 			$textClasses[] = 'sidebar-menu-item-text-' . $this->getLevel();
 
-			$output .= "<li class=\"" . join(' ', $itemClasses) . "\"".($this->hasCustomCSSStyle() ? " style=\"{$this->getCustomCSSStyle()}\"" : '').">";
+			$output .= "<li class=\"" . join(' ', $itemClasses) . "\"" . ($this->hasCustomCSSStyle() ? " style=\"{$this->getCustomCSSStyle()}\"" : '') . ">";
 			$output .= "<div class=\"sidebar-menu-item-text-container\">";
 			$output .= "<span class=\"" . join(' ', $textClasses) . "\">" . $this->getText() . "</span>";
 
@@ -124,7 +124,7 @@ class MenuItem {
 		$this->customCSSStyle = $style;
 	}
 
-	public function hasCustomCSSStyle(){
+	public function hasCustomCSSStyle() {
 		return isset($this->customCSSStyle) && $this->customCSSStyle !== '';
 	}
 
@@ -136,7 +136,7 @@ class MenuItem {
 		$this->customCSSClasses = $class;
 	}
 
-	public function hasCustomCSSClasses(){
+	public function hasCustomCSSClasses() {
 		return isset($this->customCSSClasses) && $this->customCSSClasses !== '';
 	}
 

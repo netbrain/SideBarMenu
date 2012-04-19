@@ -61,7 +61,6 @@ $wgResourceModules['ext.sidebarmenu.core'] = array(
 	'dependencies' => array(
 		'jquery.ui.core',
 		'jquery.effects.core',
-
 	),
 	'messages' => array(
 		'sidebarmenu-js-init-error'

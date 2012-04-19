@@ -32,12 +32,12 @@ class MenuParser {
 		return preg_filter("/\+|\-?\**([^\|]*)\|?.*/", "$1", $line);
 	}
 
-	public function getStyleParameter($line){
-		return preg_filter("/.*?\|style=(.*)\|?/","$1",$line);
+	public function getStyleParameter($line) {
+		return preg_filter("/.*?\|style=(.*)\|?/", "$1", $line);
 	}
 
-	public function getClassParameter($line){
-		return preg_filter("/.*?\|class=(.*)\|?/","$1",$line);
+	public function getClassParameter($line) {
+		return preg_filter("/.*?\|class=(.*)\|?/", "$1", $line);
 	}
 
 

@@ -31,6 +31,13 @@ $(document).ready(function () {
                 $(this).parents('.sidebar-menu-item:first').toggleClass('sidebar-menu-item-collapsed sidebar-menu-item-expanded');
             }
         });
+
+        /*Open submenu of current page if current page is present as a link in sidebarmenu*/
+        var selfLink = $('.sidebar-menu-item-collapsed').find('.selflink')[0]
+        if(selfLink !== undefined ){
+            $(selfLink).parent('.sidebar-menu-item-text').siblings('.sidebar-menu-item-controls').trigger('click');
+        }
+
     } else {
         $('.sidebar-menu-container').prepend(mw.msg('sidebar-js-init-error'));
     }
