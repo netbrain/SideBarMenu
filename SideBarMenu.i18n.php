@@ -163,6 +163,7 @@ $messages['ms'] = array(
  * @author AvatarTeam
  * @author SPQRobin
  * @author Siebrand
+ * @author Wiki13
  */
 $messages['nl'] = array(
 	'sidebarmenu-desc' => "Een eenvoudige menubalkparser waarmee in- en uiklapbare menu's en submenu's gemaakt kunnen worden",
