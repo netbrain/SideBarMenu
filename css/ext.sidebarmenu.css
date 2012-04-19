@@ -67,3 +67,8 @@
     font-size: smaller;
 }
 
+.sidebar-menu-item-text-1,.sidebar-menu-item-text-2 {
+    font-weight: bold;
+}
+
+
