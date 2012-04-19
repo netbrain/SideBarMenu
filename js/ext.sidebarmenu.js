@@ -2,7 +2,7 @@ $(document).ready(function () {
     if (typeof(sidebarmenu) !== 'undefined') {
         var showText = sidebarmenu.config.controls.show;
         var hideText = sidebarmenu.config.controls.hide;
-        var useAnimations = sidebarmenu.config.js.animate;
+        var useAnimations = true;
 
         function initControls() {
             $('.sidebar-menu-item-collapsed').children('.sidebar-menu-item-text-container').children('.sidebar-menu-item-controls').append(showText);
@@ -35,7 +35,7 @@ $(document).ready(function () {
         /*Open submenu of current page if current page is present as a link in sidebarmenu*/
         var selfLink = $('.sidebar-menu-item-collapsed').find('.selflink')[0]
         if(selfLink !== undefined ){
-            $(selfLink).parents('.sidebar-menu-item-collapsed').find('.sidebar-menu-item-controls').trigger('click');
+            $(selfLink).parents('.sidebar-menu-item-collapsed').removeClass('sidebar-menu-item-collapsed').addClass('sidebar-menu-item-expanded');
         }
 
     } else {
