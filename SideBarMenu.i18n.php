@@ -101,7 +101,7 @@ $messages['hsb'] = array(
 	'sidebarmenu-parser-syntax-error' => '"$1" njeda so parsować, zawěsćće, zo syntaksa je korektna.',
 	'sidebarmenu-js-init-error' => 'Začitowanje JavaScriptowych resursow je so njeporadźiło.',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" dyrbjał hódnotu "true" abo "false" měć, Město toho  hódnota je nul.',
-	'sidebarmenu-edit' => 'Wobdźěłać',
+	'sidebarmenu-edit' => 'Meni wobdźěłać',
 );
 
 /** Interlingua (Interlingua)
@@ -113,7 +113,7 @@ $messages['ia'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Non poteva interpretar "$1". Assecura que le syntaxe es correcte.',
 	'sidebarmenu-js-init-error' => 'Le cargamento de ressources JavaScript ha fallite.',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" debe esser "true" (ver) o "false" (false), ma illo es "null" (sin valor).',
-	'sidebarmenu-edit' => 'Modificar',
+	'sidebarmenu-edit' => 'Modificar menu',
 );
 
 /** Korean (한국어)
