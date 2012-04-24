@@ -15,7 +15,7 @@ class SideBarMenuHooks {
 
 		$output = '<div class="sidebar-menu-container">';
 		try {
-			$menuParser = new MenuParser($config[SBM_EXPANDED]);
+			$menuParser = new MenuParser($config);
 			$output .= $parser->recursiveTagParse($menuParser->getMenuTree($input)->toHTML(), $frame);
 		} catch (Exception $x) {
 			wfDebug("An error occured during parsing of: '$input' caught exception: $x");

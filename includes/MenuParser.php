@@ -1,12 +1,11 @@
 <?php
 class MenuParser {
 
-	private $expandedByDefault;
+	private $config;
 
-	function __construct($expandedByDefault) {
-		$this->expandedByDefault = $expandedByDefault;
+	function __construct($config) {
+		$this->config = $config;
 	}
-
 
 	public function isValidInput($data) {
 		return !(is_null($data) || strlen($data) == 0);
@@ -25,7 +24,7 @@ class MenuParser {
 				return false;
 			}
 		}
-		return $this->expandedByDefault;
+		return null;
 	}
 
 	public function getTextParameter($line) {
@@ -44,7 +43,7 @@ class MenuParser {
 	public function getMenuTree($data) {
 		if ($this->isValidInput($data)) {
 			$data = $this->cleanupData($data);
-			$root = new MenuItem();
+			$root = new MenuItem($this->config);
 			$root->setExpanded(true);
 			$arrayData = $this->parseDataIntoHierarchicalArray($data);
 			$this->addChildrenToMenuItemFromArrayData($root, $arrayData);
@@ -57,7 +56,7 @@ class MenuParser {
 	public function getMenuItem($line) {
 		$line = trim($line);
 		if ($this->isValidInput($line)) {
-			$menuItem = new MenuItem();
+			$menuItem = new MenuItem($this->config);
 			$menuItem->setExpanded($this->getExpandedParameter($line));
 			$menuItem->setText($this->getTextParameter($line));
 			$menuItem->setCustomCSSStyle($this->getStyleParameter($line));

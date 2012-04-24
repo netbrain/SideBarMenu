@@ -3,9 +3,11 @@
 class MenuParserTest extends MediaWikiTestCase {
 
 	private $menuParser;
+	private $config;
 
 	protected function setUp() {
-		$this->menuParser = new MenuParser(true);
+		$this->config = array(SBM_EXPANDED => true);
+		$this->menuParser = new MenuParser($this->config);
 	}
 
 	public function testValidInputWhenNull() {
@@ -37,10 +39,10 @@ class MenuParserTest extends MediaWikiTestCase {
 	}
 
 	public function testGetExpandedParameterWhenNoneSupplied() {
-		$this->menuParser = new MenuParser(true);
-		$this->assertTrue($this->menuParser->getExpandedParameter("MenuItem"));
-		$this->menuParser = new MenuParser(false);
-		$this->assertFalse($this->menuParser->getExpandedParameter("MenuItem"));
+		$menuParser = new MenuParser(array(SBM_EXPANDED => true));
+		$this->assertNull($menuParser->getExpandedParameter("MenuItem"));
+		$menuParser = new MenuParser(array(SBM_EXPANDED => false));
+		$this->assertNull($menuParser->getExpandedParameter("MenuItem"));
 	}
 
 	public function testGetExpandedParameterWhenNotExpanded() {

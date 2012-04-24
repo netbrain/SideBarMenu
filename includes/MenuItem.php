@@ -1,24 +1,36 @@
 <?php
 
 class MenuItem {
-	private $expanded = false;
+	private $expanded = null;
 	private $children = array();
 	private $parent = null;
 	private $text;
 	private $customCSSStyle;
 	private $customCSSClasses;
+	private $config;
 
+	function __construct($config) {
+		$this->config = $config;
+	}
 
 	public function setExpanded($expanded) {
-		if (is_null($expanded)) {
-			throw new InvalidArgumentException(wfMsg('sidebarmenu-parser-menuitem-expanded-null'));
-		} else {
+		if (is_null($expanded) || $expanded === true || $expanded === false) {
 			$this->expanded = $expanded;
+		} else {
+			throw new InvalidArgumentException(wfMsg('sidebarmenu-parser-menuitem-expanded-invalid'));
 		}
 	}
 
+	public function isExpandedSpecified(){
+		return !is_null($this->expanded);
+	}
+
 	public function isExpanded() {
-		return $this->expanded;
+		if($this->isExpandedSpecified()){
+			return $this->expanded;
+		}else{
+			return $this->config[SBM_EXPANDED];
+		}
 	}
 
 	public function setText($link) {
@@ -76,7 +88,11 @@ class MenuItem {
 			$itemClasses[] = 'sidebar-menu-item-' . $this->getLevel();
 
 			if ($this->hasChildren()) {
-				$itemClasses[] = $this->isExpanded() ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed';
+				if($this->isExpandedSpecified()){
+					$itemClasses[] = $this->isExpanded() ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed';
+				}else{
+					$itemClasses[] = $this->config[SBM_EXPANDED] ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed';
+				}
 			}
 
 			if ($this->hasCustomCSSClasses()) {
@@ -90,7 +106,7 @@ class MenuItem {
 			$output .= "<div class=\"sidebar-menu-item-text-container\">";
 			$output .= "<span class=\"" . join(' ', $textClasses) . "\">" . $this->getText() . "</span>";
 
-			if ($this->hasChildren()) {
+			if ($this->hasChildren() && $this->isExpandedSpecified()) {
 				$output .= "<span class=\"sidebar-menu-item-controls\"></span>";
 			}
 
