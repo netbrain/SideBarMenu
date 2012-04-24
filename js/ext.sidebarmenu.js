@@ -10,7 +10,7 @@ $(document).ready(function () {
         }
 
         /*Open submenu of current page if current page is present as a link in sidebarmenu*/
-        var selfLink = $('.sidebar-menu-item-collapsed').find('.selflink')[0]
+        var selfLink = $('.sidebar-menu-item').find('.selflink')[0]
         if(selfLink !== undefined ){
             $(selfLink).parents('.sidebar-menu-item-collapsed').removeClass('sidebar-menu-item-collapsed').addClass('sidebar-menu-item-expanded');
         }
