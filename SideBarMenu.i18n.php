@@ -57,6 +57,14 @@ $messages['de'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Es wurde ein ungültiger Wert angegeben. Es sollte entweder „true“ oder „false“, bzw. nichts angegeben sein.',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'sidebarmenu-edit' => 'Meni wobźěłaś',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Njepłaśiwa gódnota pódana, gódnota by dejała pak "null", "true" pak "false" byś.',
+);
+
 /** Spanish (Español)
  * @author Armando-Martin
  */
@@ -66,11 +74,12 @@ $messages['es'] = array(
 	'sidebarmenu-parser-syntax-error' => 'No se pudo analizar "$1", asegúrese de que la sintaxis es correcta.',
 	'sidebarmenu-js-init-error' => 'Error al cargar recursos de JavaScript.',
 	'sidebarmenu-edit' => 'Editar el menú',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" debe tener el valor "true" o "false", en vez de "null".',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'El valor dado es inválido, debería ser "null", "true" o "false".',
 );
 
 /** French (Français)
  * @author Gomoko
+ * @author Wyz
  */
 $messages['fr'] = array(
 	'sidebarmenu-desc' => 'Un analyseur de barre de menu latérale simple qui crée des menus et des sous-menus rétractables/extensibles',
@@ -78,7 +87,7 @@ $messages['fr'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Impossible d\'analyser "$1", assurez-vous que la syntaxe est correcte.',
 	'sidebarmenu-js-init-error' => 'Échec au chargement des ressources JavaScript.',
 	'sidebarmenu-edit' => 'Modifier le menu',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" doit être true ou false, mais il est null.',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Valeur fournie non valide, elle doit être null, true ou false.',
 );
 
 /** Galician (Galego)
@@ -101,7 +110,7 @@ $messages['hsb'] = array(
 	'sidebarmenu-parser-syntax-error' => '"$1" njeda so parsować, zawěsćće, zo syntaksa je korektna.',
 	'sidebarmenu-js-init-error' => 'Začitowanje JavaScriptowych resursow je so njeporadźiło.',
 	'sidebarmenu-edit' => 'Meni wobdźěłać',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" dyrbjał hódnotu "true" abo "false" měć, Město toho  hódnota je nul.',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Njepłaćiwa hódnota podata, hódnota dyrbjała pak "null", "true" pak "false" być.',
 );
 
 /** Interlingua (Interlingua)
@@ -146,7 +155,7 @@ $messages['mk'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Не можам да го предадам редот „$1“. Проверете дали синтаксата е исправна.',
 	'sidebarmenu-js-init-error' => 'Вчитувањето на ресурсите на JavaScript не успеа.',
 	'sidebarmenu-edit' => 'Уреди',
-	'sidebarmenu-parser-menuitem-expanded-null' => 'Параметарот „parser.menuitem.expanded“ треба да има зададено „true“ или „false“, а моментално нема ништо.',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Зададена е неважечка вредност. Треба да биде „true“, „false“ или да стои незададена.',
 );
 
 /** Malay (Bahasa Melayu)
@@ -171,7 +180,7 @@ $messages['nl'] = array(
 	'sidebarmenu-parser-input-error' => 'Er is een foutmelding uit de parser teruggekomen: $1',
 	'sidebarmenu-parser-syntax-error' => 'Het was niet mogelijk om "$1" te verwerken. Zorg ervoor dat de syntaxis correct is.',
 	'sidebarmenu-js-init-error' => 'Het laden van de JavaScriptbronnen is mislukt.',
-	'sidebarmenu-edit' => 'Bewerken',
+	'sidebarmenu-edit' => 'Menu bewerken',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" moet waar of onwaar zijn. Deze is nu null.',
 );
 
