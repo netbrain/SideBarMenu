@@ -98,7 +98,8 @@ $messages['gl'] = array(
 	'sidebarmenu-parser-input-error' => 'O analizador devolveu o seguinte erro: $1',
 	'sidebarmenu-parser-syntax-error' => 'Non se puido analizar "$1"; asegúrese de que a sintaxe é correcta.',
 	'sidebarmenu-js-init-error' => 'Erro ao cargar os recursos do JavaScript.',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" debe ter o valor "true" ou "false", pero ten "null".',
+	'sidebarmenu-edit' => 'Editar o menú',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'O valor achegado non é válido. O valor debe ser "null", "true" ou "false".',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -143,7 +144,7 @@ $messages['lb'] = array(
 	'sidebarmenu-parser-input-error' => 'Parser-Feeler: $1',
 	'sidebarmenu-parser-syntax-error' => '"$1" konnt net verschafft ginn, vergewëssert Iech datt Syntax korrekt ass.',
 	'sidebarmenu-js-init-error' => 'De JavaScript konnt net geluede ginn.',
-	'sidebarmenu-parser-menuitem-expanded-null' => 'De Parameter „<code>parser.menuitem.expanded</code>“ solle entweder „true“ oder „false“ sinn. En ass awer eidel (null).',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'De Wäert ass net valabel, de Wäert soll entweder „true“ „false“ oder eidel (null) sinn.',
 );
 
 /** Macedonian (Македонски)
