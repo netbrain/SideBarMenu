@@ -41,7 +41,8 @@ $messages['be-tarask'] = array(
 	'sidebarmenu-parser-input-error' => 'Парсэр павярнуў памылку: $1',
 	'sidebarmenu-parser-syntax-error' => 'Не атрымалася разабраць «$1». Запэўніцеся, што сынтэкс карэктны.',
 	'sidebarmenu-js-init-error' => 'Не атрымалася загрузіць JavaScript-рэсурсы.',
-	'sidebarmenu-parser-menuitem-expanded-null' => '«parser.menuitem.expanded» мусіць павяртаць true ці false, але выстаўлены ў null.',
+	'sidebarmenu-edit' => 'Рэдагаваць мэню',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Пададзенае няслушнае значэньне, слушнае — null, true, або false.',
 );
 
 /** German (Deutsch)
