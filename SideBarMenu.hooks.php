@@ -13,7 +13,7 @@ class SideBarMenuHooks {
 		//default settings
 		$config = self::getTagConfig($args);
 
-		$output = '<div class="sidebar-menu-container">';
+		$output = '<div class="sidebar-menu-container'.(is_null($config[SBM_CLASS])?:' '.$config[SBM_CLASS]).'">';
 		try {
 			$menuParser = new MenuParser($config);
 			$output .= $parser->recursiveTagParse($menuParser->getMenuTree($input)->toHTML(), $frame);
@@ -85,6 +85,7 @@ class SideBarMenuHooks {
 		$config[SBM_CONTROLS_HIDE] = array_key_exists(SBM_CONTROLS_HIDE, $args) ? $args[SBM_CONTROLS_HIDE] : (isset($wgSideBarMenuConfig[SBM_CONTROLS_HIDE]) ? $wgSideBarMenuConfig[SBM_CONTROLS_HIDE] : '[' . wfMsg('hidetoc') . ']');
 		$config[SBM_JS_ANIMATE] = array_key_exists(SBM_JS_ANIMATE, $args) ? $args[SBM_JS_ANIMATE] : $wgSideBarMenuConfig[SBM_JS_ANIMATE];
 		$config[SBM_EDIT_LINK] = array_key_exists(SBM_EDIT_LINK, $args) ? filter_var($args[SBM_EDIT_LINK], FILTER_VALIDATE_BOOLEAN) : $wgSideBarMenuConfig[SBM_EDIT_LINK];
+		$config[SBM_CLASS] =  array_key_exists(SBM_CLASS, $args) ? $args[SBM_CLASS] : null;
 		return $config;
 	}
 }

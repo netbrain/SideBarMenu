@@ -10,6 +10,7 @@ const SBM_CONTROLS_SHOW = 'controls.show';
 const SBM_CONTROLS_HIDE = 'controls.hide';
 const SBM_JS_ANIMATE = 'js.animate';
 const SBM_EDIT_LINK = 'editlink';
+const SBM_CLASS = 'class';
 
 
 //default settings
