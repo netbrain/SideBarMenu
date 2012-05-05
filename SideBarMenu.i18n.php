@@ -124,7 +124,7 @@ $messages['ia'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Non poteva interpretar "$1". Assecura que le syntaxe es correcte.',
 	'sidebarmenu-js-init-error' => 'Le cargamento de ressources JavaScript ha fallite.',
 	'sidebarmenu-edit' => 'Modificar menu',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" debe esser "true" (ver) o "false" (false), ma illo es "null" (sin valor).',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Le valor specificate es invalide. Debe esser null, true o false.',
 );
 
 /** Korean (한국어)
@@ -183,7 +183,7 @@ $messages['nl'] = array(
 	'sidebarmenu-parser-syntax-error' => 'Het was niet mogelijk om "$1" te verwerken. Zorg ervoor dat de syntaxis correct is.',
 	'sidebarmenu-js-init-error' => 'Het laden van de JavaScriptbronnen is mislukt.',
 	'sidebarmenu-edit' => 'Menu bewerken',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" moet waar of onwaar zijn. Deze is nu null.',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Er is een ongeldige waarde opgegeven. De waarde moet null, waar of onwaar zijn.',
 );
 
 /** Polish (Polski)
