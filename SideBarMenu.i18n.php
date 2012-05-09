@@ -194,7 +194,7 @@ $messages['pl'] = array(
 	'sidebarmenu-parser-input-error' => 'Analizator zwrócił błąd: $1',
 	'sidebarmenu-parser-syntax-error' => 'Nie można przeanalizować "$1", upewnij się, że składnia jest poprawna.',
 	'sidebarmenu-js-init-error' => 'Nie powiodło się ładowanie zasobów z kodem JavaScript.',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" powinien mieć wartość true lub false, zamiast tego jest pusty.',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Podano niepoprawną wartość, powinna być true, false, null.',
 );
 
 /** Pashto (پښتو)
