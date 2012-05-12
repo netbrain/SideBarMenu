@@ -168,7 +168,8 @@ $messages['ms'] = array(
 	'sidebarmenu-parser-input-error' => 'Penghurai dikembalikan dengan ralat: $1',
 	'sidebarmenu-parser-syntax-error' => '"$1" tidak dapat dihuraikan, sila pastikan sintaksnya betul.',
 	'sidebarmenu-js-init-error' => 'Sumber-sumber JavaScript gagal dimuatkan.',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded" mestilah benar (true) atau palsu (false), tetapi ia nol (null).',
+	'sidebarmenu-edit' => 'Sunting menu',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Nilai yang tidak sah diberikan; nilai seharusnya sama ada null, true, atau false.',
 );
 
 /** Dutch (Nederlands)
