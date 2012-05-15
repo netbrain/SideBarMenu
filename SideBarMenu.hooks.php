@@ -13,7 +13,7 @@ class SideBarMenuHooks {
 		//default settings
 		$config = self::getTagConfig($args);
 
-		$output = '<div class="sidebar-menu-container'.(is_null($config[SBM_CLASS])?:' '.$config[SBM_CLASS]).'">';
+		$output = '<div class="sidebar-menu-container'.(is_null($config[SBM_CLASS])? '' : ' '.$config[SBM_CLASS]).'">';
 		try {
 			$menuParser = new MenuParser($config);
 			$output .= $parser->recursiveTagParse($menuParser->getMenuTree($input)->toHTML(), $frame);
