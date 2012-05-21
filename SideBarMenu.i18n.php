@@ -127,6 +127,15 @@ $messages['ia'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Le valor specificate es invalide. Debe esser null, true o false.',
 );
 
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'sidebarmenu-parser-input-error' => 'パーサーがエラーを返しました：$1',
+	'sidebarmenu-parser-syntax-error' => '"$1" を構文解析できませんでした。構文が正しいか確認してください。',
+	'sidebarmenu-parser-menuitem-expanded-null' => '正しくない値が指定されました。値は null、true、false のいずれかです。',
+);
+
 /** Korean (한국어)
  * @author Freebiekr
  */
