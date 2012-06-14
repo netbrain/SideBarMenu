@@ -43,11 +43,6 @@ class SideBarMenuHooks {
 		return true;
 	}
 
-	public static function registerMagicWords(&$magicWords, $langCode) {
-		$magicWords['sidebarmenu'] = array(0, 'sidebarmenu');
-		return true;
-	}
-
 	private static function minifyJavascript($js) {
 		$js = preg_replace("/[\n\r]/", "", $js); //remove newlines
 		$js = preg_replace("/[\s]{2,}/", " ", $js); //remove spaces
