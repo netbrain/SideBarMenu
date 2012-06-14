@@ -66,7 +66,7 @@ $messages['dsb'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Njepłaśiwa gódnota pódana, gódnota by dejała pak "null", "true" pak "false" byś.',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  */
 $messages['es'] = array(
@@ -78,7 +78,7 @@ $messages['es'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'El valor dado es inválido, debería ser "null", "true" o "false".',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  * @author Wyz
  */
@@ -115,7 +115,7 @@ $messages['hsb'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Njepłaćiwa hódnota podata, hódnota dyrbjała pak "null", "true" pak "false" być.',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -174,7 +174,7 @@ $messages['lb'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'De Wäert ass net valabel, de Wäert soll entweder „true“ „false“ oder eidel (null) sinn.',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -213,7 +213,7 @@ $messages['nl'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Er is een ongeldige waarde opgegeven. De waarde moet null, waar of onwaar zijn.',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author BeginaFelicysym
  */
 $messages['pl'] = array(
@@ -243,7 +243,7 @@ $messages['tl'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Hindi katanggap-tanggap ang ibinigay na halaga, ang halaga ay dapat na isa mula sa walang saysay, tama, mali.',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
