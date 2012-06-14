@@ -33,9 +33,6 @@ $wgExtensionCredits['parserhook'][] = array(
 // Specify the function that will initialize the parser function.
 $wgHooks['ParserFirstCallInit'][] = 'SideBarMenuHooks::init';
 
-// Specify the function that will register the magic words for the parser function.
-$wgHooks['LanguageGetMagic'][] = 'SideBarMenuHooks::registerMagicWords';
-
 // Sepcify phpunit tests
 $wgHooks['UnitTestsList'][] = 'SideBarMenuHooks::registerUnitTests';
 
