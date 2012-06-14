@@ -231,6 +231,18 @@ $messages['ps'] = array(
 	'sidebarmenu-edit' => 'سمول',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'sidebarmenu-desc' => 'Isang payak na pambanghay sa menu ng panggilid na bareta na lumilikha ng mga naibabagsak/napalalawak na mga menu at kabahaging mga menu',
+	'sidebarmenu-parser-input-error' => 'Nagbalik ang pambanghay na may kamalian: $1',
+	'sidebarmenu-parser-syntax-error' => 'Hindi maibanghay ang "$1", tiyaking tama ang palaugnayan.',
+	'sidebarmenu-js-init-error' => 'Nabigo sa pagkakarga ng mga napagkunang JavaScript.',
+	'sidebarmenu-edit' => 'Baguhin ang menu',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Hindi katanggap-tanggap ang ibinigay na halaga, ang halaga ay dapat na isa mula sa walang saysay, tama, mali.',
+);
+
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Linforest
  */
