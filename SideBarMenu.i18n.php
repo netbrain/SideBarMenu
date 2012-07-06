@@ -215,12 +215,14 @@ $messages['nl'] = array(
 
 /** Polish (polski)
  * @author BeginaFelicysym
+ * @author Woytecr
  */
 $messages['pl'] = array(
 	'sidebarmenu-desc' => 'Prosty parser dla menu paska bocznego, który tworzy zwijane/rozwijane menu i podmenu',
 	'sidebarmenu-parser-input-error' => 'Analizator zwrócił błąd: $1',
 	'sidebarmenu-parser-syntax-error' => 'Nie można przeanalizować "$1", upewnij się, że składnia jest poprawna.',
 	'sidebarmenu-js-init-error' => 'Nie powiodło się ładowanie zasobów z kodem JavaScript.',
+	'sidebarmenu-edit' => 'Edytuj menu',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Podano niepoprawną wartość, powinna być true, false, null.',
 );
 
