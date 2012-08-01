@@ -48,9 +48,10 @@ $messages['be-tarask'] = array(
 /** German (Deutsch)
  * @author Kghbln
  * @author Metalhead64
+ * @author Purodha
  */
 $messages['de'] = array(
-	'sidebarmenu-desc' => 'Ergänzt das Tag <code>&lt;sidebarmenu&gt;</code> zum Einbinden ausklappbarer Menüs und Untermenüs in die Seitenleiste',
+	'sidebarmenu-desc' => 'Fügt den Tag <code lang="en">&lt;sidebarmenu&gt;</code> zum Einbinden ausklappbarer Menüs und Untermenüs in die Seitenleiste in die Wikisyntax ein',
 	'sidebarmenu-parser-input-error' => 'Der Parser hat den folgenden Fehler ausgegeben: $1',
 	'sidebarmenu-parser-syntax-error' => '„$1“ konnte nicht verarbeitet werden. Bitte sicherstellen, dass die Syntax richtig ist.',
 	'sidebarmenu-js-init-error' => 'Das Laden des JavaScripts ist gescheitert.',
@@ -162,6 +163,14 @@ $messages['ko'] = array(
 	'sidebarmenu-js-init-error' => '자바스크립트 리소스를 불러오지 못했습니다.',
 	'sidebarmenu-edit' => '메뉴 편집',
 	'sidebarmenu-parser-menuitem-expanded-null' => '잘못된 값을 주었으며 참, 거짓 또는 비어있어야 합니다.',
+);
+
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'sidebarmenu-desc' => 'Brängk dä Befähl <code lang="en">&lt;sidebarmenu&gt;</code> en et Wiki, öm eijfach Menüüs un Ongermenüüs för zom Ußklappe em Wiki enbenge ze künne.',
+	'sidebarmenu-parser-input-error' => 'Dä Paaser hät ene Fähler jefonge: $1',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
