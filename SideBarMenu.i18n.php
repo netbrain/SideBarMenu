@@ -51,7 +51,7 @@ $messages['be-tarask'] = array(
  * @author Purodha
  */
 $messages['de'] = array(
-	'sidebarmenu-desc' => 'Fügt den Tag <code lang="en">&lt;sidebarmenu&gt;</code> zum Einbinden ausklappbarer Menüs und Untermenüs in die Seitenleiste in die Wikisyntax ein',
+	'sidebarmenu-desc' => 'Ergänzt den Tag <code lang="en">&lt;sidebarmenu&gt;</code> zum Einbinden ausklappbarer Menüs und Untermenüs in die Seitenleiste',
 	'sidebarmenu-parser-input-error' => 'Der Parser hat den folgenden Fehler ausgegeben: $1',
 	'sidebarmenu-parser-syntax-error' => '„$1“ konnte nicht verarbeitet werden. Bitte sicherstellen, dass die Syntax richtig ist.',
 	'sidebarmenu-js-init-error' => 'Das Laden des JavaScripts ist gescheitert.',
