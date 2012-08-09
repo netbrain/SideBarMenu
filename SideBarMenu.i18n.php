@@ -242,6 +242,13 @@ $messages['ps'] = array(
 	'sidebarmenu-edit' => 'سمول',
 );
 
+/** Portuguese (português)
+ * @author SandroHc
+ */
+$messages['pt'] = array(
+	'sidebarmenu-edit' => 'Editar menu',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
