@@ -152,6 +152,13 @@ $messages['ja'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => '正しくない値が指定されました。値は null、true、false のいずれかです。',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'sidebarmenu-edit' => 'მენიუს რედაქტირება',
+);
+
 /** Korean (한국어)
  * @author Freebiekr
  * @author 아라
