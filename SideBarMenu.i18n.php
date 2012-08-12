@@ -256,6 +256,13 @@ $messages['pt'] = array(
 	'sidebarmenu-edit' => 'Editar menu',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'sidebarmenu-edit' => 'මෙනුව සංස්කරණය කරන්න',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
