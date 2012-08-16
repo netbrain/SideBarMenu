@@ -92,6 +92,13 @@ $messages['fr'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Valeur fournie non valide, elle doit être null, true ou false.',
 );
 
+/** Franco-Provençal (arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'sidebarmenu-edit' => 'Changiér lo menu',
+);
+
 /** Galician (galego)
  * @author Toliño
  */
