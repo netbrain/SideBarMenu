@@ -63,6 +63,10 @@ $messages['de'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
+	'sidebarmenu-desc' => 'Jadnory menijowy parser za bocnicu, kótaryž napórajo złožujobne/rozzłožujobne menije a pódmenije',
+	'sidebarmenu-parser-input-error' => 'Parser jo zmólku wróśił: $1',
+	'sidebarmenu-parser-syntax-error' => '"$1" njedajo se parsowaś, zawěsć, až syntaksa jo korektna.',
+	'sidebarmenu-js-init-error' => 'Zacytowanje JavaScriptowych resursow jo se njeraźiło.',
 	'sidebarmenu-edit' => 'Meni wobźěłaś',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Njepłaśiwa gódnota pódana, gódnota by dejała pak "null", "true" pak "false" byś.',
 );
