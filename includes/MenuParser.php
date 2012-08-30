@@ -28,7 +28,11 @@ class MenuParser {
 	}
 
 	public function getTextParameter($line) {
-		return preg_filter("/\+|\-?\**(.*)\|?.*/", "$1", $line);
+		if (preg_match("/\[\[.*\]\]/", $line) == 1) {
+			return preg_filter("/\+|\-?\**(\[\[.*\]\])\|?.*/", "$1", $line);
+		} else {
+			return preg_filter("/\+|\-?\**([^\|]*)\|?.*/", "$1", $line);
+		}
 	}
 
 	public function getStyleParameter($line) {

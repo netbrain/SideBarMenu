@@ -22,10 +22,6 @@ class MenuParserTest extends MediaWikiTestCase {
 		$this->assertTrue($this->menuParser->isValidInput("+MenuItem"));
 	}
 
-	public function testValidInputWithLinkName() {
-		$this->assertTrue($this->menuParser->isValidInput("+*[[MenuItem|Name]]"));
-	}
-
 	public function testGetLevelWhenNull() {
 		$this->assertEquals(0, $this->menuParser->getLevel(null));
 	}
@@ -64,6 +60,7 @@ class MenuParserTest extends MediaWikiTestCase {
 		$this->assertEquals("MenuItem", $this->menuParser->getTextParameter("-*MenuItem"));
 		$this->assertEquals("MenuItem", $this->menuParser->getTextParameter("MenuItem"));
 		$this->assertEquals("+*MenuItem", $this->menuParser->getTextParameter("+***+*MenuItem"));
+		$this->assertEquals("[[MenuItem|menu]]", $this->menuParser->getTextParameter("+*[[MenuItem|menu]]"));
 	}
 
 	public function testGetMenuItemWhenInputIsNull() {
