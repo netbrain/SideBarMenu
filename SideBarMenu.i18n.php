@@ -257,7 +257,7 @@ $messages['pl'] = array(
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'sidebarmenu-edit' => 'سمول',
+	'sidebarmenu-edit' => 'مينو سمول',
 );
 
 /** Portuguese (português)
