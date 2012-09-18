@@ -22,6 +22,7 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Kim Eik
+ * @author Nemo bis
  * @author Siebrand
  */
 $messages['qqq'] = array(
@@ -29,7 +30,8 @@ $messages['qqq'] = array(
 	'sidebarmenu-parser-input-error' => '$1 is the error message returned',
 	'sidebarmenu-parser-syntax-error' => '$1 is the line which failed to be parsed',
 	'sidebarmenu-js-init-error' => 'General error message',
-	'sidebarmenu-edit' => 'The text/html of the edit link',
+	'sidebarmenu-edit' => 'The text/html of the edit link which points to the edit page wherever the sidebarmenu is declared.
+Seems to be an action button.',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'The value of the expanded property of a menuitem',
 );
 
@@ -54,7 +56,7 @@ $messages['de'] = array(
 	'sidebarmenu-desc' => 'Ergänzt den Tag <code lang="en">&lt;sidebarmenu&gt;</code> zum Einbinden ausklappbarer Menüs und Untermenüs in die Seitenleiste',
 	'sidebarmenu-parser-input-error' => 'Der Parser hat den folgenden Fehler ausgegeben: $1',
 	'sidebarmenu-parser-syntax-error' => '„$1“ konnte nicht verarbeitet werden. Bitte sicherstellen, dass die Syntax richtig ist.',
-	'sidebarmenu-js-init-error' => 'Das Laden des JavaScripts ist gescheitert.',
+	'sidebarmenu-js-init-error' => 'Das Laden der JavaScripte ist gescheitert.',
 	'sidebarmenu-edit' => 'Menü bearbeiten',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Es wurde ein ungültiger Wert angegeben. Es sollte entweder „true“ oder „false“, bzw. nichts angegeben sein.',
 );
@@ -189,6 +191,10 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'sidebarmenu-desc' => 'Brängk dä Befähl <code lang="en">&lt;sidebarmenu&gt;</code> en et Wiki, öm eijfach Menüüs un Ongermenüüs för zom Ußklappe em Wiki enbenge ze künne.',
 	'sidebarmenu-parser-input-error' => 'Dä Paaser hät ene Fähler jefonge: $1',
+	'sidebarmenu-parser-syntax-error' => 'Mer kunnte „$1“ nit verärbeide un oplüüse. Bes seescher, dat dat all reeschtesch jerschrevve es un schtemmp?',
+	'sidebarmenu-js-init-error' => 'De Javaskrepte kunnte nit jelaade wääde.',
+	'sidebarmenu-edit' => 'Et Menü ändere!',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Ene onjöltije Wäät es aanjejovve woode, et sullt <code lang="en>null</code>, <code lang="en>true</code>, udder <code lang="en>false</code> sin.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
