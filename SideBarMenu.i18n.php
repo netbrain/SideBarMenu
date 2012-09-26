@@ -303,3 +303,11 @@ $messages['zh-hans'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded"应该为 true 或 false；相反，它却为空（null）。',
 );
 
+/** Traditional Chinese (中文（繁體）‎) */
+$messages['zh-hant'] = array(
+	'sidebarmenu-desc' => '一個簡單的，可用於創建可摺疊式/可展開式菜單及子菜單的邊欄菜單解析器',
+	'sidebarmenu-parser-input-error' => '解析器返回錯誤：$1',
+	'sidebarmenu-parser-syntax-error' => '無法解析"$1"，請確認語法是否正確。',
+	'sidebarmenu-js-init-error' => 'JavaScript資源加載失敗。',
+);
+
