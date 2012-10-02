@@ -35,7 +35,7 @@ Seems to be an action button.',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'The value of the expanded property of a menuitem',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
@@ -292,7 +292,7 @@ $messages['tl'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Hindi katanggap-tanggap ang ibinigay na halaga, ang halaga ay dapat na isa mula sa walang saysay, tama, mali.',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Linforest
  */
 $messages['zh-hans'] = array(
