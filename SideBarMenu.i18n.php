@@ -295,12 +295,14 @@ $messages['tl'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Linforest
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'sidebarmenu-desc' => '一个简单的，可用于创建可折叠式/可展开式菜单及子菜单的边栏菜单解析器',
 	'sidebarmenu-parser-input-error' => '解析器返回错误：$1',
 	'sidebarmenu-parser-syntax-error' => '无法解析"$1"，请确认语法是否正确。',
 	'sidebarmenu-js-init-error' => 'JavaScript资源加载失败。',
+	'sidebarmenu-edit' => '编辑菜单',
 	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded"应该为 true 或 false；相反，它却为空（null）。', # Fuzzy
 );
 
