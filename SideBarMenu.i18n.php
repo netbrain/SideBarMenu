@@ -293,6 +293,18 @@ $messages['tl'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Hindi katanggap-tanggap ang ibinigay na halaga, ang halaga ay dapat na isa mula sa walang saysay, tama, mali.',
 );
 
+/** Ukrainian (українська)
+ * @author Base
+ */
+$messages['uk'] = array(
+	'sidebarmenu-desc' => 'Простий парсер бічного меню, який створює згортабельні/розгортабельні меню і підменю',
+	'sidebarmenu-parser-input-error' => 'Парсер повернув помилку: $1',
+	'sidebarmenu-parser-syntax-error' => 'Не вдалося проаналізувати «$1», впевніться, що синтаксис коректний.',
+	'sidebarmenu-js-init-error' => 'Не вдалось завантажити ресурси JavaScript.',
+	'sidebarmenu-edit' => 'Редагувати меню',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Подано некоректне значення, значення повинне бути одним із: null,true,false.',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Linforest
  * @author Yfdyh000
