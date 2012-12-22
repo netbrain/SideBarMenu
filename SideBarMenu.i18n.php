@@ -86,6 +86,13 @@ $messages['es'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'El valor dado es inválido, debería ser "null", "true" o "false".',
 );
 
+/** Persian (فارسی)
+ * @author Mjbmr
+ */
+$messages['fa'] = array(
+	'sidebarmenu-edit' => 'منوی ویرایش',
+);
+
 /** French (français)
  * @author Gomoko
  * @author Wyz
