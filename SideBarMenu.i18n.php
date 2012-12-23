@@ -288,6 +288,13 @@ $messages['si'] = array(
 	'sidebarmenu-edit' => 'මෙනුව සංස්කරණය කරන්න',
 );
 
+/** Swedish (svenska)
+ * @author WikiPhoenix
+ */
+$messages['sv'] = array(
+	'sidebarmenu-edit' => 'Redigeringsmeny',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
@@ -326,10 +333,12 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Shirayuki
  */
 $messages['zh-hant'] = array(
 	'sidebarmenu-desc' => '一個簡單的，可用於創建可摺疊式/可展開式菜單及子菜單的邊欄菜單解析器',
 	'sidebarmenu-parser-input-error' => '解析器返回錯誤：$1',
 	'sidebarmenu-parser-syntax-error' => '無法解析"$1"，請確認語法是否正確。',
 	'sidebarmenu-js-init-error' => 'JavaScript資源加載失敗。',
+	'sidebarmenu-edit' => '編輯菜單',
 );
