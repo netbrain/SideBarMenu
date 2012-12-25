@@ -267,6 +267,18 @@ $messages['pl'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Podano niepoprawną wartość, powinna być true, false, null.',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'sidebarmenu-desc' => 'Un sempi menù dla bara lateral che a crea menù e sot-menù comprimibij/espandibij',
+	'sidebarmenu-parser-input-error' => "Ël parser a l'ha tornà con eror: $1",
+	'sidebarmenu-parser-syntax-error' => 'A peul pa parsifiché "$1", sigurte che la sintass a sia giusta.',
+	'sidebarmenu-js-init-error' => "falì a carié j'arzorse JavaScript.",
+	'sidebarmenu-edit' => 'Modìfica menù',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Valor dàit pa bon, ël valor a dovrìa esse un ëd gnente, ver, fàuss.',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
