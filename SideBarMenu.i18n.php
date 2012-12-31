@@ -293,10 +293,21 @@ $messages['pt'] = array(
 	'sidebarmenu-edit' => 'Editar menu',
 );
 
+/** Romanian (română)
+ * @author Minisarm
+ * @author Stelistcristi
+ */
+$messages['ro'] = array(
+	'sidebarmenu-parser-input-error' => 'Parserul a returnat o eroare: $1',
+	'sidebarmenu-edit' => 'Modifică meniul',
+);
+
 /** Sinhala (සිංහල)
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'sidebarmenu-parser-input-error' => 'ව්‍යාකරණ විග්‍රහය දෝෂයක් සමඟ ආපසු පැමිණෙයි: $1',
+	'sidebarmenu-js-init-error' => 'JavaScript සම්පත් පූරණය වීම අසාර්ථකයි.',
 	'sidebarmenu-edit' => 'මෙනුව සංස්කරණය කරන්න',
 );
 
