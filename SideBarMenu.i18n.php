@@ -268,14 +268,15 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'sidebarmenu-desc' => 'Un sempi menù dla bara lateral che a crea menù e sot-menù comprimibij/espandibij',
-	'sidebarmenu-parser-input-error' => "Ël parser a l'ha tornà con eror: $1",
-	'sidebarmenu-parser-syntax-error' => 'A peul pa parsifiché "$1", sigurte che la sintass a sia giusta.',
-	'sidebarmenu-js-init-error' => "falì a carié j'arzorse JavaScript.",
-	'sidebarmenu-edit' => 'Modìfica menù',
+	'sidebarmenu-desc' => "N'analisator sempi dla bara dë mnù lateral che a crea dle liste e sot-liste comprimìbij/espandìbij",
+	'sidebarmenu-parser-input-error' => "L'analisator a l'ha rëspondù con n'eror: $1",
+	'sidebarmenu-parser-syntax-error' => "Impossìbil analisé «$1», ch'as sigura che la sintassi a sia giusta.",
+	'sidebarmenu-js-init-error' => "Falì a carié j'arsorse JavaScript.",
+	'sidebarmenu-edit' => 'Modifiché la lista',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Valor dàit pa bon, ël valor a dovrìa esse un ëd gnente, ver, fàuss.',
 );
 
