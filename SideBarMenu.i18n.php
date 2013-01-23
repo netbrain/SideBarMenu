@@ -353,7 +353,7 @@ $messages['zh-hans'] = array(
 	'sidebarmenu-parser-syntax-error' => '无法解析"$1"，请确认语法是否正确。',
 	'sidebarmenu-js-init-error' => 'JavaScript资源加载失败。',
 	'sidebarmenu-edit' => '编辑菜单',
-	'sidebarmenu-parser-menuitem-expanded-null' => '"parser.menuitem.expanded"应该为 true 或 false；相反，它却为空（null）。', # Fuzzy
+	'sidebarmenu-parser-menuitem-expanded-null' => '提供的值无效，值应为null,true,false之一。',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
