@@ -11,7 +11,8 @@ const SBM_CONTROLS_HIDE = 'controls.hide';
 const SBM_JS_ANIMATE = 'js.animate';
 const SBM_EDIT_LINK = 'editlink';
 const SBM_CLASS = 'class';
-
+const SBM_STYLE = 'style';
+const SBM_MINIMIZED = 'minimized';
 
 //default settings
 $wgSideBarMenuConfig[SBM_CONTROLS_SHOW] = null;
@@ -19,6 +20,8 @@ $wgSideBarMenuConfig[SBM_CONTROLS_HIDE] = null;
 $wgSideBarMenuConfig[SBM_JS_ANIMATE] = true;
 $wgSideBarMenuConfig[SBM_EXPANDED] = true;
 $wgSideBarMenuConfig[SBM_EDIT_LINK] = true;
+$wgSideBarMenuConfig[SBM_MINIMIZED] = false;
+
 
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,

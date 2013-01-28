@@ -1,8 +1,24 @@
 $(document).ready(function () {
+
+    //IE doesn't support const, use var instead :(
+    var SBM_EXPANDED = 'parser.menuitem.expanded';
+    var SBM_CONTROLS_SHOW = 'controls.show';
+    var SBM_CONTROLS_HIDE = 'controls.hide';
+    var SBM_JS_ANIMATE = 'js.animate';
+    var SBM_EDIT_LINK = 'editlink';
+    var SBM_CLASS = 'class';
+    var SBM_STYLE = 'style';
+    var SBM_MINIMIZED = 'minimized';
+
     if (typeof(sidebarmenu) !== 'undefined') {
-        var showText = sidebarmenu.config.controls.show;
-        var hideText = sidebarmenu.config.controls.hide;
-        var useAnimations = sidebarmenu.config.js.animate;
+        var showText = sidebarmenu[SBM_CONTROLS_SHOW];
+        var hideText = sidebarmenu[SBM_CONTROLS_HIDE];
+        var useAnimations = sidebarmenu[SBM_JS_ANIMATE];
+        var minimized = sidebarmenu[SBM_MINIMIZED];
+
+        if(minimized){
+            $('.sidebar-menu-container').addClass('sidebar-menu-minimized');
+        }
 
         function initControls() {
             $('.sidebar-menu-item-collapsed').children('.sidebar-menu-item-text-container').children('.sidebar-menu-item-controls').append(showText);
@@ -17,13 +33,20 @@ $(document).ready(function () {
 
         //initialize controls
         initControls();
-        $('.sidebar-menu-item-controls').click(function () {
-            var currentText = $(this).text();
+
+        //initialize click actions
+        $('.sidebar-menu-item-controls,.sidebar-menu-item-expand-action').click(function () {
+            if(minimized && $(this)[0] == $('.sidebar-menu-item-controls:first')[0]){
+                $('.sidebar-menu-container').toggleClass('sidebar-menu-minimized');
+            }
+
+            var controls = $(this).is('.sidebar-menu-item-controls') ? $(this) : $(this).next();
+            var currentText = controls.text();
 
             if (currentText == showText) {
-                $(this).text(hideText);
+                controls.text(hideText);
             } else if (currentText == hideText) {
-                $(this).text(showText);
+                controls.text(showText);
             }
 
             if (useAnimations) {
@@ -39,7 +62,9 @@ $(document).ready(function () {
             }
         });
 
-    } else {
-        $('.sidebar-menu-container').prepend(mw.msg('sidebar-js-init-error'));
+        //must do this in javascript as serverside solution would replace this <a href> link with escaped html characters
+        $('.sidebar-menu-item-expand-action').each(function(){
+            $(this).html('<a href="#" onclick="return false;">'+$(this).html()+'</a>');
+        })
     }
 });

@@ -1,10 +1,13 @@
 <?php
-
+/**
+ * @group SideBarMenu
+ */
 class MenuItemTest extends MediaWikiTestCase {
 	private $menuItem;
 	private $config;
 
 	protected function setUp() {
+		parent::setUp();
 		$this->config = array(SBM_EXPANDED => false);
 		$this->menuItem = new MenuItem($this->config);
 	}
@@ -69,7 +72,7 @@ class MenuItemTest extends MediaWikiTestCase {
 		$menuItemChild->setText("MenuItem1");
 		$this->menuItem->addChild($menuItemChild);
 		$html = $this->menuItem->toHTML();
-		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>', $html);
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-last"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>', $html);
 	}
 
 	public function testToHTMLOnSeveralMenuItems() {
@@ -82,7 +85,7 @@ class MenuItemTest extends MediaWikiTestCase {
 		$this->menuItem->addChild($menuItemChild2);
 
 		$html = $this->menuItem->toHTML();
-		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</span></div></li></ul>', $html);
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-last"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-last"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</span></div></li></ul>', $html);
 	}
 
 	public function testToHTMLOnSeveralMenuItemsWithSublevels() {
@@ -99,7 +102,7 @@ class MenuItemTest extends MediaWikiTestCase {
 		$subLevel1->setParent($menuItemChild2);
 
 		$html = $this->menuItem->toHTML();
-		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</span></div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</span></div></li></ul></li></ul>', $html);
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-last"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem2</span></div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2 sidebar-menu-item-last"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</span></div></li></ul></li></ul>', $html);
 	}
 
 	public function testToHTMLOnSeveralMenuItemsWithSublevelsWhereExpandedIsTrue() {
@@ -114,7 +117,7 @@ class MenuItemTest extends MediaWikiTestCase {
 		$subLevel1->setParent($menuItemChild);
 
 		$html = $this->menuItem->toHTML();
-		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-expanded"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem</span><span class="sidebar-menu-item-controls"></span></div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</span></div></li></ul></li></ul>', $html);
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-expanded"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem</span><span class="sidebar-menu-item-controls"></span></div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2 sidebar-menu-item-last"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</span></div></li></ul></li></ul>', $html);
 	}
 
 	public function testToHTMLOnSeveralMenuItemsWithSublevelsWhereExpandedIsFalse() {
@@ -129,7 +132,7 @@ class MenuItemTest extends MediaWikiTestCase {
 		$subLevel1->setParent($menuItemChild);
 
 		$html = $this->menuItem->toHTML();
-		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem</span><span class="sidebar-menu-item-controls"></span></div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</span></div></li></ul></li></ul>', $html);
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-collapsed"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem</span><span class="sidebar-menu-item-controls"></span></div><ul class="sidebar-menu sidebar-menu-1"><li class="sidebar-menu-item sidebar-menu-item-2 sidebar-menu-item-last"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-2">SubMenuItem1</span></div></li></ul></li></ul>', $html);
 	}
 
 
@@ -139,7 +142,7 @@ class MenuItemTest extends MediaWikiTestCase {
 		$menuItemChild->setCustomCSSStyle('color: red;');
 		$this->menuItem->addChild($menuItemChild);
 		$html = $this->menuItem->toHTML();
-		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1" style="color: red;"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>', $html);
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-last" style="color: red;"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>', $html);
 	}
 
 	public function testToHTMLOnMenuItemWithCustomClasses() {
@@ -148,6 +151,15 @@ class MenuItemTest extends MediaWikiTestCase {
 		$menuItemChild->setCustomCSSClasses('testclass1 testclass2');
 		$this->menuItem->addChild($menuItemChild);
 		$html = $this->menuItem->toHTML();
-		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 testclass1 testclass2"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>', $html);
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-last testclass1 testclass2"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1">MenuItem1</span></div></li></ul>', $html);
+	}
+
+	public function testToHTMLMenuItemWithExpandAction() {
+		$menuItemChild = new MenuItem($this->config);
+		$menuItemChild->setText("MenuItem1");
+		$menuItemChild->setExpandAction(true);
+		$this->menuItem->addChild($menuItemChild);
+		$html = $this->menuItem->toHTML();
+		$this->assertEquals('<ul class="sidebar-menu sidebar-menu-0"><li class="sidebar-menu-item sidebar-menu-item-1 sidebar-menu-item-last"><div class="sidebar-menu-item-text-container"><span class="sidebar-menu-item-text sidebar-menu-item-text-1 sidebar-menu-item-expand-action">MenuItem1</span></div></li></ul>', $html);
 	}
 }

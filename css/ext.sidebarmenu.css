@@ -1,10 +1,8 @@
 /* default SideBarMenu extension styling */
 
 .sidebar-menu-container {
-    padding: 5px;
     float: left;
     clear: left;
-    margin: 5px;
 }
 
 .sidebar-menu-item-collapsed  .sidebar-menu {
@@ -50,10 +48,17 @@
 
 .sidebar-menu-item-text-container {
     position: relative;
+    padding-right: 45px !important;
+}
+
+.sidebar-menu-minimized .sidebar-menu-item-text-container {
+    padding-right: 0px !important;
 }
 
 .sidebar-menu-item-controls {
-    float: right;
+    position: absolute;
+    right: 0px;
+    top: 0px;
     color: #0645AD;
     cursor: pointer;
     min-width: 45px;
@@ -67,8 +72,29 @@
     font-size: smaller;
 }
 
+.sidebar-menu-item-text {
+    overflow:hidden;
+    width: 100%;
+}
+
 .sidebar-menu-item-text-1,.sidebar-menu-item-text-2 {
     font-weight: bold;
 }
 
 
+.sidebar-menu-minimized {
+    width: 45px !important;
+}
+
+.sidebar-menu-minimized .sidebar-menu-item-text {
+    visibility: hidden;
+}
+
+.sidebar-menu-item-last .sidebar-menu-item-text-container {
+    padding-right: 0px !important;
+}
+
+.sidebar-menu-item-1 > .sidebar-menu-item-text-container > .sidebar-menu-item-controls {
+    right: 3px;
+    top: 3px;
+}

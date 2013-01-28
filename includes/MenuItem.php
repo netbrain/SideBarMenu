@@ -8,6 +8,7 @@ class MenuItem {
 	private $customCSSStyle;
 	private $customCSSClasses;
 	private $config;
+	private $expandAction = false;
 
 	function __construct($config) {
 		$this->config = $config;
@@ -17,7 +18,7 @@ class MenuItem {
 		if (is_null($expanded) || $expanded === true || $expanded === false) {
 			$this->expanded = $expanded;
 		} else {
-			throw new InvalidArgumentException(wfMsg('sidebarmenu-parser-menuitem-expanded-invalid'));
+			throw new InvalidArgumentException(wfMessage('sidebarmenu-parser-menuitem-expanded-invalid')->text());
 		}
 	}
 
@@ -31,6 +32,14 @@ class MenuItem {
 		}else{
 			return $this->config[SBM_EXPANDED];
 		}
+	}
+
+	public function setExpandAction($expandAction) {
+		$this->expandAction = $expandAction;
+	}
+
+	public function isExpandAction() {
+		return $this->expandAction;
 	}
 
 	public function setText($link) {
@@ -87,6 +96,11 @@ class MenuItem {
 			$itemClasses[] = 'sidebar-menu-item';
 			$itemClasses[] = 'sidebar-menu-item-' . $this->getLevel();
 
+			if(!$this->hasChildren()){
+				//to distinguish if this is the last item in the menu tree (eg. a leaf)
+				$itemClasses[] = 'sidebar-menu-item-last';
+			}
+
 			if ($this->hasChildren()) {
 				if($this->isExpandedSpecified()){
 					$itemClasses[] = $this->isExpanded() ? 'sidebar-menu-item-expanded' : 'sidebar-menu-item-collapsed';
@@ -101,6 +115,9 @@ class MenuItem {
 
 			$textClasses[] = 'sidebar-menu-item-text';
 			$textClasses[] = 'sidebar-menu-item-text-' . $this->getLevel();
+			if($this->isExpandAction()){
+				$textClasses[] = 'sidebar-menu-item-expand-action';
+			}
 
 			$output .= "<li class=\"" . join(' ', $itemClasses) . "\"" . ($this->hasCustomCSSStyle() ? " style=\"{$this->getCustomCSSStyle()}\"" : '') . ">";
 			$output .= "<div class=\"sidebar-menu-item-text-container\">";

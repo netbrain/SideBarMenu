@@ -31,7 +31,7 @@ class MenuParser {
 		if (preg_match("/\[\[.*\]\]/", $line) == 1) {
 			return preg_filter("/\+|\-?\**(\[\[.*\]\])\|?.*/", "$1", $line);
 		} else {
-			return preg_filter("/\+|\-?\**([^\|]*)\|?.*/", "$1", $line);
+			return preg_filter("/\+|\-?\**\@?([^\|]*)\|?.*/", "$1", $line);
 		}
 	}
 
@@ -41,6 +41,13 @@ class MenuParser {
 
 	public function getClassParameter($line) {
 		return preg_filter("/.*?\|class=(.*)\|?/", "$1", $line);
+	}
+
+	public function getExpandActionParameter($line){
+		if (preg_match("/\+|\-?\**\@.*/", $line) == 1) {
+			return true;
+		}
+		return false;
 	}
 
 
@@ -65,6 +72,7 @@ class MenuParser {
 			$menuItem->setText($this->getTextParameter($line));
 			$menuItem->setCustomCSSStyle($this->getStyleParameter($line));
 			$menuItem->setCustomCSSClasses($this->getClassParameter($line));
+			$menuItem->setExpandAction($this->getExpandActionParameter($line));
 			return $menuItem;
 		} else {
 			throw new InvalidArgumentException();
@@ -91,7 +99,7 @@ class MenuParser {
 						$levelArray[$level][] = $line;
 					} else {
 						//syntax error
-						throw new InvalidArgumentException(wfMsg('sidebarmenu-parser-syntax-error', $line));
+						throw new InvalidArgumentException(wfMessage('sidebarmenu-parser-syntax-error', $line)->text());
 					}
 				}
 			}
@@ -122,11 +130,5 @@ class MenuParser {
 		return trim($data, "\n ");
 	}
 
-	private static function removeLineBreaksFromStartOfString($data) {
-		while (self::startsWith($data, "\n")) {
-			$data = substr($data, 1);
-		}
-		return $data;
-	}
 
 }
