@@ -303,6 +303,13 @@ $messages['ro'] = array(
 	'sidebarmenu-edit' => 'Modifică meniul',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'sidebarmenu-edit' => "Cange 'u menu",
+);
+
 /** Sinhala (සිංහල)
  * @author පසිඳු කාවින්ද
  */
