@@ -166,7 +166,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'sidebarmenu-desc' => '折り畳み/展開できるメニュー/サブメニューを作成する簡易サイドバーメニューのパーサー',
-	'sidebarmenu-parser-input-error' => 'パーサーがエラーを返しました：$1',
+	'sidebarmenu-parser-input-error' => 'パーサーがエラーを返しました: $1',
 	'sidebarmenu-parser-syntax-error' => '"$1" を構文解析できませんでした。構文が正しいか確認してください。',
 	'sidebarmenu-js-init-error' => 'JavaScript リソースの読み込みに失敗しました。',
 	'sidebarmenu-edit' => 'メニューを編集',
