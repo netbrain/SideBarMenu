@@ -23,10 +23,11 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Kim Eik
  * @author Nemo bis
+ * @author Shirayuki
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'sidebarmenu-desc' => '{{desc}}',
+	'sidebarmenu-desc' => '{{desc|name=Side Bar Menu|url=http://www.mediawiki.org/wiki/Extension:SideBarMenu}}',
 	'sidebarmenu-parser-input-error' => 'Error message on parser error. Parameters:
 * $1 is the error message returned.',
 	'sidebarmenu-parser-syntax-error' => 'Error message on parsing. Parameters:
