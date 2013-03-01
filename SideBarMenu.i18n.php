@@ -216,6 +216,18 @@ $messages['lb'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'De Wäert ass net valabel, de Wäert soll entweder „true“ „false“ oder eidel (null) sinn.',
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'sidebarmenu-desc' => 'Menu parser sadarano sidebar nan mambuek menu bukak/tutuik jo sub-menu',
+	'sidebarmenu-parser-input-error' => 'Parser mammbuek kasalahan: $1',
+	'sidebarmenu-parser-syntax-error' => 'Indak dapek parser "$1", yakinkan syntax nyo batua.',
+	'sidebarmenu-js-init-error' => 'Gagal mamuek Skrip Java',
+	'sidebarmenu-edit' => 'Menu suntiang',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Nilai indak sah, nilai haruslah satu dari null,true,false.',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
