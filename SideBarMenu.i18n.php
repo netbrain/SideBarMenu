@@ -49,6 +49,13 @@ $messages['be-tarask'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Пададзенае няслушнае значэньне, слушнае — null, true, або false.',
 );
 
+/** Breton (brezhoneg)
+ * @author Fohanno
+ */
+$messages['br'] = array(
+	'sidebarmenu-edit' => 'Aozañ al lañser',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Metalhead64
