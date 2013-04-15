@@ -343,6 +343,7 @@ $messages['si'] = array(
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'sidebarmenu-js-init-error' => 'Misslyckades att läsa in JavaScript-resurser.',
 	'sidebarmenu-edit' => 'Redigeringsmeny',
 );
 
