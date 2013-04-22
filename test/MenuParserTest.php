@@ -1,11 +1,14 @@
 <?php
-
+/**
+ *  @group SideBarMenu
+ */
 class MenuParserTest extends MediaWikiTestCase {
 
 	private $menuParser;
 	private $config;
 
 	protected function setUp() {
+		parent::setUp();
 		$this->config = array(SBM_EXPANDED => true);
 		$this->menuParser = new MenuParser($this->config);
 	}
@@ -228,6 +231,15 @@ class MenuParserTest extends MediaWikiTestCase {
 		$children = $this->menuParser->getMenuTree(join("\n", $data))->getChildren();
 		$this->assertEquals("MenuItem1", $children[0]->getText());
 		$this->assertEquals("somecssclass anothercssclass", $children[0]->getCustomCSSClasses());
+	}
+
+	public function testMenuItemTextExpandsSubtreeOnClick() {
+		$data = array(
+			'@MenuItem1',
+		);
+		$children = $this->menuParser->getMenuTree(join("\n", $data))->getChildren();
+		$this->assertEquals("MenuItem1", $children[0]->getText());
+		$this->assertTrue($children[0]->isExpandAction());
 	}
 
 }
