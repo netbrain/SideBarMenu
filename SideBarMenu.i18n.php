@@ -327,6 +327,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'sidebarmenu-parser-input-error' => "L'analizzatore ha turnate cu 'n'errore: $1",
 	'sidebarmenu-edit' => "Cange 'u menu",
 );
 
