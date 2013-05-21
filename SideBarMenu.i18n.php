@@ -37,6 +37,18 @@ $messages['qqq'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'The value of the expanded property of a menuitem',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'sidebarmenu-desc' => 'Un simple analizador de la barra llateral que crea menús y submenús que puen contraese y espandese',
+	'sidebarmenu-parser-input-error' => "L'analizador tornó col error: $1",
+	'sidebarmenu-parser-syntax-error' => 'Non pudo analizase "$1", compruebe que la sintaxis ye correuta.',
+	'sidebarmenu-js-init-error' => 'Fallu al cargar los recursos JavaScript.',
+	'sidebarmenu-edit' => 'Editar el menú',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'El valor dau ye inválidu; el valor tien de ser "null", "true" o "false".',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Wizardist
  */
