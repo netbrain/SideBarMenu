@@ -398,6 +398,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Justincheng12345
  * @author Shirayuki
  */
 $messages['zh-hant'] = array(
@@ -406,4 +407,5 @@ $messages['zh-hant'] = array(
 	'sidebarmenu-parser-syntax-error' => '無法解析"$1"，請確認語法是否正確。',
 	'sidebarmenu-js-init-error' => 'JavaScript資源加載失敗。',
 	'sidebarmenu-edit' => '編輯菜單',
+	'sidebarmenu-parser-menuitem-expanded-null' => '提供的數值無效，數值應為null、true或false。',
 );
