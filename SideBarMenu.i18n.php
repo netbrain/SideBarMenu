@@ -339,8 +339,12 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'sidebarmenu-desc' => "'Nu semblice menu laterale analizzatore ca ccreje le menu e le sotte menu ca se sconnene e se spannene",
 	'sidebarmenu-parser-input-error' => "L'analizzatore ha turnate cu 'n'errore: $1",
+	'sidebarmenu-parser-syntax-error' => 'Non ge pozze analizzà "$1", condrolle ca \'a sindasse jè corrette.',
+	'sidebarmenu-js-init-error' => 'Carecamende de le resorse JavaScript fallite.',
 	'sidebarmenu-edit' => "Cange 'u menu",
+	'sidebarmenu-parser-menuitem-expanded-null' => "Valore date invalide, 'u valore avessa essere null, vere, fause.",
 );
 
 /** Sinhala (සිංහල)
