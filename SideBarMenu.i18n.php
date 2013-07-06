@@ -286,6 +286,13 @@ $messages['nl'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => 'Er is een ongeldige waarde opgegeven. De waarde moet null, waar of onwaar zijn.',
 );
 
+/** Punjabi (ਪੰਜਾਬੀ)
+ * @author Babanwalia
+ */
+$messages['pa'] = array(
+	'sidebarmenu-edit' => 'ਸੋਧ ਸੂਚੀ',
+);
+
 /** Polish (polski)
  * @author BeginaFelicysym
  * @author Woytecr
