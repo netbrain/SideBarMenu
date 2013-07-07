@@ -12,7 +12,7 @@ $messages = array();
  * @author Kim Eik
  */
 $messages['en'] = array(
-	'sidebarmenu-desc' => 'A simple sidebar menu parser which creates collapsable/expandable menus and sub-menus',
+	'sidebarmenu-desc' => 'A simple sidebar menu parser which creates collapsible/expandable menus and sub-menus',
 	'sidebarmenu-parser-input-error' => 'Parser returned with error: $1',
 	'sidebarmenu-parser-syntax-error' => 'Could not parse "$1", make sure the syntax is correct.',
 	'sidebarmenu-js-init-error' => 'Failed loading JavaScript resources.',
