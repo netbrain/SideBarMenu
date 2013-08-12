@@ -9,6 +9,7 @@ class SideBarMenuHooks {
 
 	public static function renderFromTag($input, array $args, Parser $parser, PPFrame $frame) {
 		$parser->getOutput()->addModules('ext.sidebarmenu.core');
+		$input = $parser->recursiveTagParse($input,$frame);
 
 		//default settings
 		$config = self::getTagConfig($args);
@@ -16,8 +17,7 @@ class SideBarMenuHooks {
 		$output = '<div class="sidebar-menu-container'.(is_null($config[SBM_CLASS])? '' : ' '.$config[SBM_CLASS]).'"'.(is_null($config[SBM_STYLE])? '' : ' style="'.$config[SBM_STYLE].'"').'>';
 		try {
 			$menuParser = new MenuParser($config);
-			$menuHTML = $menuParser->getMenuTree($input)->toHTML();
-			$output .= $parser->recursiveTagParse($menuHTML, $frame);
+			$output .= $menuParser->getMenuTree($input)->toHTML();
 		} catch (Exception $x) {
 			wfDebug("An error occured during parsing of: '$input' caught exception: $x");
 			return wfMessage('sidebarmenu-parser-input-error', $x->getMessage())->text();
