@@ -205,7 +205,7 @@ $messages['ka'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'sidebarmenu-desc' => '메뉴와 서브메뉴를 보이거나 숨길 수 있는 간단한 사이드바 메뉴 파서입니다.',
+	'sidebarmenu-desc' => '메뉴와 서브메뉴를 보이거나 숨길 수 있는 간단한 사이드바 메뉴 파서',
 	'sidebarmenu-parser-input-error' => '$1 오류가 발생했습니다.',
 	'sidebarmenu-parser-syntax-error' => '"$1"(을)를 분석할 수 없었습니다. 구문이 올바른지 확인하십시오.',
 	'sidebarmenu-js-init-error' => '자바스크립트 리소스를 불러오지 못했습니다.',
