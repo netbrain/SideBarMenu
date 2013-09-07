@@ -333,6 +333,13 @@ $messages['pt'] = array(
 	'sidebarmenu-edit' => 'Editar menu',
 );
 
+/** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
+ */
+$messages['pt-br'] = array(
+	'sidebarmenu-edit' => 'Editar menu',
+);
+
 /** Romanian (română)
  * @author Minisarm
  * @author Stelistcristi
