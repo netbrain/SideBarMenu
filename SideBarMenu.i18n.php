@@ -374,8 +374,12 @@ $messages['si'] = array(
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'sidebarmenu-desc' => 'En enkel parser i sidofältsmenyn som skapar hopfällbara/expanderbara menyer och undermenyer',
+	'sidebarmenu-parser-input-error' => 'Parser returnerade felet: $1',
+	'sidebarmenu-parser-syntax-error' => 'Kunde inte tolka "$1", se till att syntaxen är korrekt.',
 	'sidebarmenu-js-init-error' => 'Misslyckades att läsa in JavaScript-resurser.',
 	'sidebarmenu-edit' => 'Redigeringsmeny',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Ogiltigt värde angavs, värdet bör antingen vara null, true eller false.',
 );
 
 /** Tagalog (Tagalog)
