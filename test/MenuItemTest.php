@@ -2,7 +2,12 @@
 /**
  * @group SideBarMenu
  */
-class MenuItemTest extends MediaWikiTestCase {
+
+namespace SideBarMenu\Tests;
+
+use SideBarMenu\MenuItem;
+
+class MenuItemTest extends \MediaWikiTestCase {
 	private $menuItem;
 	private $config;
 

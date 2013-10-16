@@ -35,6 +35,15 @@ $messages['qqq'] = array(
 	'sidebarmenu-js-init-error' => 'General error message.',
 	'sidebarmenu-edit' => 'Action link. The text of the link which points to the edit page wherever the sidebarmenu is declared.',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'The value of the expanded property of a menuitem',
+	'sidebarmenu-parser-config-error' => 'Config parameters passed to the extension is incorrect (wrong parameter key or value)',
+	'sidebarmenu-param-expanded' => 'Parameter which causes all menu items to be expanded by default unless explicit set',
+	'sidebarmenu-param-show' => 'Parameter which sets the show text that is visible when a menu item is hidden',
+	'sidebarmenu-param-hide' => 'Parameter which sets the hide text that is visible when a menu item is shown',
+	'sidebarmenu-param-animate' => 'Parameter which toggles whether the sidebar menu should have animation or not when showing/hiding menu elements',
+	'sidebarmenu-param-editlink' => 'Parameter which toggles whether an edit link should be visible under the sidebar menu',
+	'sidebarmenu-param-class' => 'Parameter which sets the html attribute "class" on the sidebar menu container',
+	'sidebarmenu-param-style' => 'Parameter which sets the html attribute "style" on the sidebar menu container',
+	'sidebarmenu-param-minimized' => 'Parameter which toggles whether the sidebar menu should be minimized or not',
 );
 
 /** Asturian (asturianu)

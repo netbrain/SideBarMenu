@@ -4,69 +4,99 @@ if (!defined('MEDIAWIKI')) {
 	die('Not an entry point.');
 }
 
+if (!defined('ParamProcessor_VERSION')) {
+	die('SideBarMenu requires extension ParamProcessor');
+}
+
 //SideBarMenu constants
-const SBM_EXPANDED = 'parser.menuitem.expanded';
-const SBM_CONTROLS_SHOW = 'controls.show';
-const SBM_CONTROLS_HIDE = 'controls.hide';
-const SBM_JS_ANIMATE = 'js.animate';
+const SBM_EXPANDED = 'expanded';
+const SBM_CONTROLS_SHOW = 'show';
+const SBM_CONTROLS_HIDE = 'hide';
+const SBM_JS_ANIMATE = 'animate';
 const SBM_EDIT_LINK = 'editlink';
 const SBM_CLASS = 'class';
 const SBM_STYLE = 'style';
 const SBM_MINIMIZED = 'minimized';
 
-//default settings
-$wgSideBarMenuConfig[SBM_CONTROLS_SHOW] = null;
-$wgSideBarMenuConfig[SBM_CONTROLS_HIDE] = null;
-$wgSideBarMenuConfig[SBM_JS_ANIMATE] = true;
-$wgSideBarMenuConfig[SBM_EXPANDED] = true;
-$wgSideBarMenuConfig[SBM_EDIT_LINK] = true;
-$wgSideBarMenuConfig[SBM_MINIMIZED] = false;
-
-
-$wgExtensionCredits['parserhook'][] = array(
-	'path' => __FILE__,
-	'name' => 'SideBarMenu',
-	'version' => 0.1,
-	'author' => 'Kim Eik',
-	'url' => 'https://www.mediawiki.org/wiki/Extension:SideBarMenu',
-	'descriptionmsg' => 'sidebarmenu-desc'
+$wgSideBarMenuConstants = array(
+	SBM_EXPANDED,
+	SBM_CONTROLS_SHOW,
+	SBM_CONTROLS_HIDE,
+	SBM_JS_ANIMATE,
+	SBM_EDIT_LINK,
+	SBM_CLASS,
+	SBM_STYLE,
+	SBM_MINIMIZED,
 );
 
+spl_autoload_register( function ( $className ) {
+	$className = ltrim( $className, '\\' );
+	$fileName = '';
+	$namespace = '';
 
-// Specify the function that will initialize the parser function.
-$wgHooks['ParserFirstCallInit'][] = 'SideBarMenuHooks::init';
+	if ( $lastNsPos = strripos( $className, '\\') ) {
+		$namespace = substr( $className, 0, $lastNsPos );
+		$className = substr( $className, $lastNsPos + 1 );
+		$fileName  = str_replace( '\\', '/', $namespace ) . '/';
+	}
 
-// Sepcify phpunit tests
-$wgHooks['UnitTestsList'][] = 'SideBarMenuHooks::registerUnitTests';
+	$fileName .= str_replace( '_', '/', $className ) . '.php';
 
-//Autoload hooks
-$wgAutoloadClasses['SideBarMenuHooks'] = dirname(__FILE__) . '/SideBarMenu.hooks.php';
+	$namespaceSegments = explode( '\\', $namespace );
 
-//Autoload classes
-$wgMyExtensionIncludes = dirname(__FILE__) . '/includes';
-## Special page class
-$wgAutoloadClasses['MenuParser'] = $wgMyExtensionIncludes . '/MenuParser.php';
-$wgAutoloadClasses['MenuItem'] = $wgMyExtensionIncludes . '/MenuItem.php';
+	if ( $namespaceSegments[0] === 'SideBarMenu' ) {
+		$fileName = substr($fileName,strlen($namespaceSegments[0]));
+		if ( count( $namespaceSegments ) === 1 || $namespaceSegments[1] !== 'Tests' ) {
+			require_once (__DIR__ . '/src/' . $fileName);
+		}
+	}
+} );
 
-//i18n
-$wgExtensionMessagesFiles['SideBarMenu'] = dirname(__FILE__) . '/SideBarMenu.i18n.php';
+call_user_func( function() {
+	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgExtensionFunctions, $wgResourceModules;
 
-//Resources
-$wgResourceModules['ext.sidebarmenu.core'] = array(
-	'scripts' => array(
-		'js/ext.sidebarmenu.js'
-	),
-	'styles' => array(
-		'css/ext.sidebarmenu.css'
-	),
-	'dependencies' => array(
-		'jquery.ui.core',
-		'jquery.effects.core',
-	),
-	'messages' => array(
-		'sidebarmenu-js-init-error'
-	),
-	'group' => 'ext.sidebarmenu',
-	'localBasePath' => dirname(__FILE__),
-	'remoteExtPath' => 'SideBarMenu'
-);
+	$wgExtensionCredits['parserhook'][] = array(
+		'path' => __FILE__,
+		'name' => 'SideBarMenu',
+		'version' => '0.2',
+		'author' => 'Kim Eik',
+		'url' => 'https://www.mediawiki.org/wiki/Extension:SideBarMenu',
+		'descriptionmsg' => 'sidebarmenu-desc'
+	);
+
+	//i18n
+	$wgExtensionMessagesFiles['SideBarMenu'] = dirname(__FILE__) . '/SideBarMenu.i18n.php';
+
+	//Resources
+	$wgResourceModules['ext.sidebarmenu.core'] = array(
+		'scripts' => array(
+			'js/ext.sidebarmenu.js'
+		),
+		'styles' => array(
+			'css/ext.sidebarmenu.css'
+		),
+		'dependencies' => array(
+			'jquery.ui.core',
+			'jquery.effects.core',
+		),
+		'messages' => array(
+			'sidebarmenu-js-init-error'
+		),
+		'group' => 'ext.sidebarmenu',
+		'localBasePath' => dirname(__FILE__),
+		'remoteExtPath' => 'SideBarMenu'
+	);
+
+	$wgExtensionFunctions[] = function() {
+		global $wgHooks;
+
+		// Specify the function that will initialize the parser function.
+		$wgHooks['ParserFirstCallInit'][] = 'SideBarMenu\Hooks::init';
+
+		// Sepcify phpunit tests
+		$wgHooks['UnitTestsList'][]	= 'SideBarMenu\Hooks::registerUnitTests';
+	};
+
+} );
+
+require_once(__DIR__.'/SideBarMenu.settings.php');
