@@ -361,6 +361,18 @@ $messages['roa-tara'] = array(
 	'sidebarmenu-parser-menuitem-expanded-null' => "Valore date invalide, 'u valore avessa essere null, vere, fause.",
 );
 
+/** Russian (русский)
+ * @author Okras
+ */
+$messages['ru'] = array(
+	'sidebarmenu-desc' => 'Простой синтаксический анализатор меню в боковой панели, который создает сворачиваемые/разворачиваемые меню и подменю',
+	'sidebarmenu-parser-input-error' => 'Синтаксический анализатор вернул ошибку: $1',
+	'sidebarmenu-parser-syntax-error' => 'Не удалось выполнить разбор строки «$1», убедитесь, что используется правильный синтаксис.',
+	'sidebarmenu-js-init-error' => 'Не удалось загрузить ресурсы JavaScript.',
+	'sidebarmenu-edit' => 'Редактировать меню',
+	'sidebarmenu-parser-menuitem-expanded-null' => 'Задано недопустимое значение, значение должно быть одним из следующих: null (пусто), true («истина»), false («ложь»).',
+);
+
 /** Sinhala (සිංහල)
  * @author පසිඳු කාවින්ද
  */
