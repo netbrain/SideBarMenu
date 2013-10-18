@@ -36,6 +36,7 @@ $messages['qqq'] = array(
 	'sidebarmenu-edit' => 'Action link. The text of the link which points to the edit page wherever the sidebarmenu is declared.',
 	'sidebarmenu-parser-menuitem-expanded-null' => 'The value of the expanded property of a menuitem',
 	'sidebarmenu-parser-config-error' => 'Config parameters passed to the extension is incorrect (wrong parameter key or value)',
+	'sidebarmenu-parser-subpage-error' => 'Error message presented when illegal or incorrect value for #subpage title',
 	'sidebarmenu-param-expanded' => 'Parameter which causes all menu items to be expanded by default unless explicit set',
 	'sidebarmenu-param-show' => 'Parameter which sets the show text that is visible when a menu item is hidden',
 	'sidebarmenu-param-hide' => 'Parameter which sets the hide text that is visible when a menu item is shown',

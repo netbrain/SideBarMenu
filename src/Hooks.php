@@ -2,50 +2,62 @@
 
 namespace SideBarMenu;
 use ParamProcessor\Processor;
+use \SideBarMenu\SubPage\SubPageRenderer;
 
 class Hooks {
 
 	public static function init(\Parser &$parser) {
-		$parser->setHook('sidebarmenu', 'SideBarMenu\Hooks::renderFromTag');
+		$parser->setHook('sidebarmenu', 'SideBarMenu\Hooks::renderSideBarMenuFromTag');
 		return true;
 	}
 
-	public static function renderFromTag($input, array $args, \Parser $parser, \PPFrame $frame) {
-		$parser->getOutput()->addModules('ext.sidebarmenu.core');
-		$input = $parser->recursiveTagParse($input,$frame);
 
-		//default settings
-		$parameters = self::getTagConfig($args);
-		$config = array();
-		if(count($parameters->getErrors()) > 0){
-			$errors = wfMessage('sidebarmenu-parser-config-error')."\n";
-			foreach($parameters->getErrors() as $error){
-				$errors .= '* '.$error->getMessage()."\n";
-			}
-			return $errors;
-		}else{
-			foreach($parameters->getParameters() as $param){
-				$config[$param->getName()] = $param->getValue();
-			}
-		}
-
-		$id = uniqid('sidebar-menu-id-');
-		$output = '<div id="'.$id.'" class="sidebar-menu-container'.(is_null($config[SBM_CLASS])? '' : ' '.$config[SBM_CLASS]).'" style="display:none;'.(is_null($config[SBM_STYLE])? '' : $config[SBM_STYLE]).'">';
+	public static function renderSideBarMenuFromTag($input, array $args, \Parser $parser, \PPFrame $frame) {
 		try {
+			$parser->getOutput()->addModules('ext.sidebarmenu.core');
+			$input = $parser->recursiveTagParse($input,$frame);
+
+			if(strpos($input,'#subpage ') !== false){
+				//subpages handling
+				$parser->disableCache();
+				SubPageRenderer::renderSubPages($input);
+				$input = str_replace("\n\n","\n",$input);
+				$input = $parser->recursiveTagParse($input,$frame);
+			}
+
+			//default settings
+			$parameters = self::getTagConfig($args);
+			$config = array();
+			if(count($parameters->getErrors()) > 0){
+				$errors = wfMessage('sidebarmenu-parser-config-error')."\n";
+				foreach($parameters->getErrors() as $error){
+					$errors .= '* '.$error->getMessage()."\n";
+				}
+				return $errors;
+			}else{
+				foreach($parameters->getParameters() as $param){
+					$config[$param->getName()] = $param->getValue();
+				}
+			}
+
+			$id = uniqid('sidebar-menu-id-');
+			$output = '<div id="'.$id.'" class="sidebar-menu-container'.(is_null($config[SBM_CLASS])? '' : ' '.$config[SBM_CLASS]).'" style="display:none;'.(is_null($config[SBM_STYLE])? '' : $config[SBM_STYLE]).'">';
+
 			$menuParser = new MenuParser($config);
 			$output .= $menuParser->getMenuTree($input)->toHTML();
+
+			if ($config[SBM_EDIT_LINK]) {
+				$output .= \Linker::link($frame->getTitle(), wfMessage('sidebarmenu-edit')->escaped(), array('title' => wfMessage('sidebarmenu-edit')->escaped(), 'class' => 'sidebar-menu-edit-link'), array('action' => 'edit'));
+			}
+			$output .= '</div>';
+
+			$jsOutput = self::getJSConfig($config,$id);
+			return array($jsOutput . $output, 'noparse' => true, 'isHTML' => true);
+
 		} catch (\Exception $x) {
 			wfDebug("An error occured during parsing of: '$input' caught exception: $x");
-			return wfMessage('sidebarmenu-parser-input-error', $x->getMessage())->text();
+			return wfMessage('sidebarmenu-parser-input-error', '<strong>'.$x->getMessage()."</strong>\n<pre>$input</pre>")->parse();
 		}
-		if ($config[SBM_EDIT_LINK]) {
-			$output .= \Linker::link($frame->getTitle(), wfMessage('sidebarmenu-edit')->escaped(), array('title' => wfMessage('sidebarmenu-edit')->escaped(), 'class' => 'sidebar-menu-edit-link'), array('action' => 'edit'));
-		}
-		$output .= '</div>';
-
-		$jsOutput = self::getJSConfig($config,$id);
-
-		return array($jsOutput . $output, 'noparse' => true, 'isHTML' => true);
 	}
 
 	public static function registerUnitTests(&$files) {
