@@ -1,5 +1,7 @@
 <?php
 
+namespace SideBarMenu;
+
 class MenuItem {
 	private $expanded = null;
 	private $children = array();

@@ -1,4 +1,7 @@
 <?php
+
+namespace SideBarMenu;
+
 class MenuParser {
 
 	private $config;
@@ -58,6 +61,17 @@ class MenuParser {
 			$root->setExpanded(true);
 			$arrayData = $this->parseDataIntoHierarchicalArray($data);
 			$this->addChildrenToMenuItemFromArrayData($root, $arrayData);
+
+			if($this->config[SBM_MINIMIZED]){
+				//When minimized is true this here forces the first menu element to be
+				//collapsed causing it to display correctly and not having to add "-"
+				// explicitly in the input data
+				$children = $root->getChildren();
+				if(count($children) > 0){
+					$children[0]->setExpanded(false);
+				}
+			}
+
 			return $root;
 		}
 		return null;
@@ -75,7 +89,7 @@ class MenuParser {
 			$menuItem->setExpandAction($this->getExpandActionParameter($line));
 			return $menuItem;
 		} else {
-			throw new InvalidArgumentException();
+			throw new \InvalidArgumentException();
 		}
 	}
 
@@ -99,7 +113,7 @@ class MenuParser {
 						$levelArray[$level][] = $line;
 					} else {
 						//syntax error
-						throw new InvalidArgumentException(wfMessage('sidebarmenu-parser-syntax-error', $line)->text());
+						throw new \InvalidArgumentException(wfMessage('sidebarmenu-parser-syntax-error', $line)->text());
 					}
 				}
 			}

@@ -2,7 +2,12 @@
 /**
  *  @group SideBarMenu
  */
-class MenuParserTest extends MediaWikiTestCase {
+
+namespace SideBarMenu\Tests;
+
+use SideBarMenu\MenuParser;
+
+class MenuParserTest extends \MediaWikiTestCase {
 
 	private $menuParser;
 	private $config;

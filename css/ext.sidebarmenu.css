@@ -48,7 +48,7 @@
 
 .sidebar-menu-item-text-container {
     position: relative;
-    padding-right: 45px !important;
+    padding-right: 50px !important;
 }
 
 .sidebar-menu-minimized .sidebar-menu-item-text-container {
@@ -90,11 +90,19 @@
     visibility: hidden;
 }
 
+.sidebar-menu-minimized .sidebar-menu {
+    display: none;
+}
+
+.sidebar-menu-minimized .sidebar-menu-0 {
+    display: block;
+}
+
 .sidebar-menu-item-last .sidebar-menu-item-text-container {
     padding-right: 0px !important;
 }
 
 .sidebar-menu-item-1 > .sidebar-menu-item-text-container > .sidebar-menu-item-controls {
-    right: 3px;
+    right: 5px;
     top: 3px;
 }
