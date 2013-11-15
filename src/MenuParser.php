@@ -62,7 +62,7 @@ class MenuParser {
 			$arrayData = $this->parseDataIntoHierarchicalArray( $data );
 			$this->addChildrenToMenuItemFromArrayData( $root, $arrayData );
 
-			if ( $this->config[ SBM_MINIMIZED ] ) {
+			if ( isset( $this->config[ SBM_MINIMIZED ] ) && $this->config[ SBM_MINIMIZED ] ) {
 				//When minimized is true this here forces the first menu element to be
 				//collapsed causing it to display correctly and not having to add "-"
 				// explicitly in the input data
