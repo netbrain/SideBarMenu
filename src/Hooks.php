@@ -1,87 +1,102 @@
 <?php
 
 namespace SideBarMenu;
+
+use Exception;
+use Html;
+use Linker;
 use ParamProcessor\Processor;
-use \SideBarMenu\SubPage\SubPageRenderer;
+use Parser;
+use PPFrame;
+use SideBarMenu\SubPage\SubPageRenderer;
 
 class Hooks {
 
-	public static function init(\Parser &$parser) {
-		$parser->setHook('sidebarmenu', 'SideBarMenu\Hooks::renderSideBarMenuFromTag');
+	/**
+	 * @param Parser $parser
+	 * @return bool
+	 */
+	public static function init( Parser &$parser ) {
+		$parser->setHook( 'sidebarmenu', 'SideBarMenu\Hooks::renderSideBarMenuFromTag' );
 		return true;
 	}
 
-
-	public static function renderSideBarMenuFromTag($input, array $args, \Parser $parser, \PPFrame $frame) {
+	public static function renderSideBarMenuFromTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 		try {
-			$parser->getOutput()->addModules('ext.sidebarmenu.core');
-			$input = $parser->recursiveTagParse($input,$frame);
+			$parser->getOutput()->addModules( 'ext.sidebarmenu.core' );
+			$input = $parser->recursiveTagParse( $input, $frame );
 
-			if(strpos($input,'#subpage ') !== false){
+			if ( strpos( $input, '#subpage ' ) !== false ) {
 				//subpages handling
 				$parser->disableCache();
-				SubPageRenderer::renderSubPages($input);
-				$input = str_replace("\n\n","\n",$input);
-				$input = $parser->recursiveTagParse($input,$frame);
+				SubPageRenderer::renderSubPages( $input );
+				$input = str_replace( "\n\n", "\n", $input );
+				$input = $parser->recursiveTagParse( $input, $frame );
 			}
 
 			//default settings
-			$parameters = self::getTagConfig($args);
+			$parameters = self::getTagConfig( $args );
 			$config = array();
-			if(count($parameters->getErrors()) > 0){
-				$errors = wfMessage('sidebarmenu-parser-config-error')."\n";
-				foreach($parameters->getErrors() as $error){
-					$errors .= '* '.$error->getMessage()."\n";
+			if ( count( $parameters->getErrors() ) > 0 ) {
+				$errors = wfMessage( 'sidebarmenu-parser-config-error' ) . "\n";
+				foreach ( $parameters->getErrors() as $error ) {
+					$errors .= '* ' . $error->getMessage() . "\n";
 				}
 				return $errors;
-			}else{
-				foreach($parameters->getParameters() as $param){
-					$config[$param->getName()] = $param->getValue();
+			} else {
+				foreach ( $parameters->getParameters() as $param ) {
+					$config[ $param->getName() ] = $param->getValue();
 				}
 			}
 
-			$id = uniqid('sidebar-menu-id-');
-			$output = '<div id="'.$id.'" class="sidebar-menu-container'.(is_null($config[SBM_CLASS])? '' : ' '.$config[SBM_CLASS]).'" style="display:none;'.(is_null($config[SBM_STYLE])? '' : $config[SBM_STYLE]).'">';
+			$id = uniqid( 'sidebar-menu-id-' );
+			$output = '<div id="' . $id . '" class="sidebar-menu-container' . ( is_null( $config[ SBM_CLASS ] ) ? '' : ' ' . $config[ SBM_CLASS ] ) . '" style="display:none;' . ( is_null( $config[ SBM_STYLE ] ) ? '' : $config[ SBM_STYLE ] ) . '">';
 
-			$menuParser = new MenuParser($config);
-			$output .= $menuParser->getMenuTree($input)->toHTML();
+			$menuParser = new MenuParser( $config );
+			$output .= $menuParser->getMenuTree( $input )->toHTML();
 
-			if ($config[SBM_EDIT_LINK]) {
-				$output .= \Linker::link($frame->getTitle(), wfMessage('sidebarmenu-edit')->escaped(), array('title' => wfMessage('sidebarmenu-edit')->escaped(), 'class' => 'sidebar-menu-edit-link'), array('action' => 'edit'));
+			if ( $config[ SBM_EDIT_LINK ] ) {
+				$output .= Linker::link( $frame->getTitle(), wfMessage( 'sidebarmenu-edit' )->escaped(), array( 'title' => wfMessage( 'sidebarmenu-edit' )->escaped(), 'class' => 'sidebar-menu-edit-link' ), array( 'action' => 'edit' ) );
 			}
 			$output .= '</div>';
 
-			$jsOutput = self::getJSConfig($config,$id);
-			return array($jsOutput . $output, 'noparse' => true, 'isHTML' => true);
+			$jsOutput = self::getJSConfig( $config, $id );
+			return array( $jsOutput . $output, 'noparse' => true, 'isHTML' => true );
 
-		} catch (\Exception $x) {
-			wfDebug("An error occured during parsing of: '$input' caught exception: $x");
-			return wfMessage('sidebarmenu-parser-input-error', '<strong>'.$x->getMessage()."</strong>\n<pre>$input</pre>")->parse();
+		}
+		catch( Exception $x ) {
+			wfDebug( "An error occured during parsing of: '$input' caught exception: $x" );
+			return wfMessage( 'sidebarmenu-parser-input-error', '<strong>' . $x->getMessage() . "</strong>\n<pre>$input</pre>" )->parse();
 		}
 	}
 
-	public static function registerUnitTests(&$files) {
-		$testDir = dirname(__FILE__) . '/test/';
-		$testFiles = scandir($testDir);
-		foreach ($testFiles as $testFile) {
+	/**
+	 * @param array $files
+	 *
+	 * @return bool
+	 */
+	public static function registerUnitTests( &$files ) {
+		$testDir = dirname( __FILE__ ) . '/test/';
+		$testFiles = scandir( $testDir );
+		foreach ( $testFiles as $testFile ) {
 			$absoluteFile = $testDir . $testFile;
-			if (is_file($absoluteFile)) {
-				$files[] = $absoluteFile;
+			if ( is_file( $absoluteFile ) ) {
+				$files[ ] = $absoluteFile;
 			}
 		}
 		return true;
 	}
 
-	private static function minifyJavascript($js) {
-		$js = preg_replace("/[\n\r]/", "", $js); //remove newlines
-		$js = preg_replace("/[\s]{2,}/", " ", $js); //remove spaces
+	private static function minifyJavascript( $js ) {
+		$js = preg_replace( "/[\n\r]/", "", $js ); //remove newlines
+		$js = preg_replace( "/[\s]{2,}/", " ", $js ); //remove spaces
 
 		return $js;
 	}
 
-	private static function getJSConfig($config,$id) {
+	private static function getJSConfig( $config, $id ) {
 		//javascript config output
-		$jsonConfig = json_encode($config);
+		$jsonConfig = json_encode( $config );
 		$jsOutput = <<<EOT
 			(function(json,id){
 				if(window.sidebarmenu === undefined){
@@ -91,46 +106,45 @@ class Hooks {
 			})($jsonConfig,'$id');
 EOT;
 
-
-		$jsOutput = \Html::inlineScript($jsOutput);
+		$jsOutput = Html::inlineScript( $jsOutput );
 		//minify js to prevent <p> tags to be rendered
-		$jsOutput = self::minifyJavascript($jsOutput);
+		$jsOutput = self::minifyJavascript( $jsOutput );
 		return $jsOutput;
 	}
 
-	private static function getTagConfig($args) {
+	private static function getTagConfig( $args ) {
 		global $wgSideBarMenuConfig;
 
 		$parameterDefs = array(
 			array(
 				'name' => 'expanded',
-				'default' => $wgSideBarMenuConfig[SBM_EXPANDED],
+				'default' => $wgSideBarMenuConfig[ SBM_EXPANDED ],
 				'type' => 'boolean',
 				'message' => 'sidebarmenu-param-expanded',
-				'aliases' => array('parser.menuitem.expanded'),
+				'aliases' => array( 'parser.menuitem.expanded' ),
 			),
 			array(
 				'name' => 'show',
-				'default' => is_null($wgSideBarMenuConfig[SBM_CONTROLS_SHOW]) ? '['.wfMessage('showtoc')->escaped().']' : $wgSideBarMenuConfig[SBM_CONTROLS_SHOW],
+				'default' => is_null( $wgSideBarMenuConfig[ SBM_CONTROLS_SHOW ] ) ? '[' . wfMessage( 'showtoc' )->escaped() . ']' : $wgSideBarMenuConfig[ SBM_CONTROLS_SHOW ],
 				'message' => 'sidebarmenu-param-show',
-				'aliases' => array('controls.show'),
+				'aliases' => array( 'controls.show' ),
 			),
 			array(
 				'name' => 'hide',
-				'default' => is_null($wgSideBarMenuConfig[SBM_CONTROLS_HIDE]) ? '['.wfMessage('hidetoc')->escaped().']' : $wgSideBarMenuConfig[SBM_CONTROLS_HIDE],
+				'default' => is_null( $wgSideBarMenuConfig[ SBM_CONTROLS_HIDE ] ) ? '[' . wfMessage( 'hidetoc' )->escaped() . ']' : $wgSideBarMenuConfig[ SBM_CONTROLS_HIDE ],
 				'message' => 'sidebarmenu-param-hide',
-				'aliases' => array('controls.hide'),
+				'aliases' => array( 'controls.hide' ),
 			),
 			array(
 				'name' => 'animate',
-				'default' => $wgSideBarMenuConfig[SBM_JS_ANIMATE],
+				'default' => $wgSideBarMenuConfig[ SBM_JS_ANIMATE ],
 				'type' => 'boolean',
 				'message' => 'sidebarmenu-param-animate',
-				'aliases' => array('js.animate'),
+				'aliases' => array( 'js.animate' ),
 			),
 			array(
 				'name' => 'editlink',
-				'default' => $wgSideBarMenuConfig[SBM_EDIT_LINK],
+				'default' => $wgSideBarMenuConfig[ SBM_EDIT_LINK ],
 				'type' => 'boolean',
 				'message' => 'sidebarmenu-param-editlink',
 			),
@@ -146,14 +160,14 @@ EOT;
 			),
 			array(
 				'name' => 'minimized',
-				'default' => $wgSideBarMenuConfig[SBM_MINIMIZED],
+				'default' => $wgSideBarMenuConfig[ SBM_MINIMIZED ],
 				'type' => 'boolean',
 				'message' => 'sidebarmenu-param-minimized',
 			),
 		);
 
 		$processor = Processor::newDefault();
-		$processor->setParameters($args,$parameterDefs);
+		$processor->setParameters( $args, $parameterDefs );
 		$processedParams = $processor->processParameters();
 
 		return $processedParams;
