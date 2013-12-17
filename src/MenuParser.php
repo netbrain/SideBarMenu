@@ -140,7 +140,12 @@ class MenuParser {
 	}
 
 	private static function cleanupData( $data ) {
-		return trim( $data, "\n " );
+		//remove pre-/post- newline
+		$data = trim($data, "\n ");
+
+		//remove html comments from input
+		$data = preg_replace('/<!--(.|\s)*?-->/', '', $data);
+		return $data;
 	}
 
 }
