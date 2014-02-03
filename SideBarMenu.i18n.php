@@ -108,9 +108,13 @@ $messages['es'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Mjbmr
  */
 $messages['fa'] = array(
+	'sidebarmenu-parser-input-error' => 'تجزیه کننده با خطا بازگردانده شد: $1',
+	'sidebarmenu-parser-syntax-error' => '"$1" نتوانست تجزیه شود، مطمئن شوید نحو صحیح است.',
+	'sidebarmenu-js-init-error' => 'عدم موفقیت بارگذاری منابع جاوااسکرسپت.',
 	'sidebarmenu-edit' => 'منوی ویرایش',
 );
 
