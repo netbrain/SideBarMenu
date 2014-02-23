@@ -257,7 +257,7 @@ $messages['min'] = array(
  */
 $messages['mk'] = array(
 	'sidebarmenu-desc' => 'Парсер за проста странична лента што создава расклопни менија и подменија во неа',
-	'sidebarmenu-parser-input-error' => 'Парсерот се врати со грешката: $1',
+	'sidebarmenu-parser-input-error' => 'Расчленувачот ја даде грешката: $1',
 	'sidebarmenu-parser-syntax-error' => 'Не можам да го предадам редот „$1“. Проверете дали синтаксата е исправна.',
 	'sidebarmenu-js-init-error' => 'Вчитувањето на ресурсите на JavaScript не успеа.',
 	'sidebarmenu-edit' => 'Уреди',
