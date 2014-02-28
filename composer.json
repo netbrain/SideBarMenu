@@ -1,0 +1,26 @@
+{
+    "name": "mediawiki/sidebarmenu",
+    "description": "Allows for a simple sidebar menu which supports infinite number of sub-menus.",
+    "version": "0.2.1",
+    "license": "GPL-3.0+",
+    "require": {
+        "php": ">=5.3.0",
+        "mediawiki/validator": ">=1.0.0.1"
+    },
+    "authors": [
+        {
+            "name": "Kim Eik",
+            "email": "kim@heldig.org",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files" : [
+            "SideBarMenu.php"
+        ],
+        "classmap":[
+            "src/",
+            "test/"
+        ]
+   }
+}
