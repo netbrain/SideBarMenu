@@ -1,5 +1,6 @@
 {
     "name": "mediawiki/sidebarmenu",
+    "type": "mediawiki-extension",
     "description": "Allows for a simple sidebar menu which supports infinite number of sub-menus.",
     "version": "0.2.1",
     "license": "GPL-3.0+",
