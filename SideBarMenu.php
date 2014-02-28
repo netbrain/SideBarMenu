@@ -33,7 +33,7 @@ $wgSideBarMenuConstants = array(
 	SBM_MINIMIZED,
 );
 
-spl_autoload_register( function ( $className ) {
+/*spl_autoload_register( function ( $className ) {
 	$className = ltrim( $className, '\\' );
 	$fileName = '';
 	$namespace = '';
@@ -54,9 +54,9 @@ spl_autoload_register( function ( $className ) {
 			require_once (__DIR__ . '/src/' . $fileName);
 		}
 	}
-} );
+} );*/
 
-call_user_func( function() {
+//call_user_func( function() {
 	global $wgExtensionCredits, $wgExtensionMessagesFiles, $wgExtensionFunctions, $wgResourceModules;
 
 	$wgExtensionCredits['parserhook'][] = array(
@@ -101,6 +101,6 @@ call_user_func( function() {
 		$wgHooks['UnitTestsList'][]	= 'SideBarMenu\Hooks::registerUnitTests';
 	};
 
-} );
+//} );
 
 require_once(__DIR__.'/SideBarMenu.settings.php');

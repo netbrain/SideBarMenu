@@ -101,6 +101,9 @@ class SubPageRenderer {
 	 */
 	public static function getSubpagesAsSet( Title $title, $parent = '' ) {
 		$subPages = $title->getSubpages();
+		if(empty($subPages)){
+			return array();
+		}
 		/** @var Title[] $titles */
 		$titles[ ] = $title;
 		while ( $subPages->valid() ) {

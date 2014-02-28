@@ -24,15 +24,16 @@ class Hooks {
 	public static function renderSideBarMenuFromTag( $input, array $args, Parser $parser, PPFrame $frame ) {
 		try {
 			$parser->getOutput()->addModules( 'ext.sidebarmenu.core' );
-			$input = $parser->recursiveTagParse( $input, $frame );
 
 			if ( strpos( $input, '#subpage ' ) !== false ) {
 				//subpages handling
 				$parser->disableCache();
 				SubPageRenderer::renderSubPages( $input );
 				$input = str_replace( "\n\n", "\n", $input );
-				$input = $parser->recursiveTagParse( $input, $frame );
+				$input = trim($input);
+
 			}
+			$input = $parser->recursiveTagParse( $input, $frame );
 
 			//default settings
 			$parameters = self::getTagConfig( $args );
@@ -53,7 +54,10 @@ class Hooks {
 			$output = '<div id="' . $id . '" class="sidebar-menu-container' . ( is_null( $config[ SBM_CLASS ] ) ? '' : ' ' . $config[ SBM_CLASS ] ) . '" style="display:none;' . ( is_null( $config[ SBM_STYLE ] ) ? '' : $config[ SBM_STYLE ] ) . '">';
 
 			$menuParser = new MenuParser( $config );
-			$output .= $menuParser->getMenuTree( $input )->toHTML();
+			$menuTree = $menuParser->getMenuTree( $input );
+			if(!is_null($menuTree)){
+				$output .= $menuTree->toHTML();
+			}
 
 			if ( $config[ SBM_EDIT_LINK ] ) {
 				$output .= Linker::link( $frame->getTitle(), wfMessage( 'sidebarmenu-edit' )->escaped(), array( 'title' => wfMessage( 'sidebarmenu-edit' )->escaped(), 'class' => 'sidebar-menu-edit-link' ), array( 'action' => 'edit' ) );
@@ -113,38 +117,36 @@ EOT;
 	}
 
 	private static function getTagConfig( $args ) {
-		global $wgSideBarMenuConfig;
-
 		$parameterDefs = array(
 			array(
 				'name' => 'expanded',
-				'default' => $wgSideBarMenuConfig[ SBM_EXPANDED ],
+				'default' => $GLOBALS['wgSideBarMenuConfig'][ SBM_EXPANDED ],
 				'type' => 'boolean',
 				'message' => 'sidebarmenu-param-expanded',
 				'aliases' => array( 'parser.menuitem.expanded' ),
 			),
 			array(
 				'name' => 'show',
-				'default' => is_null( $wgSideBarMenuConfig[ SBM_CONTROLS_SHOW ] ) ? '[' . wfMessage( 'showtoc' )->escaped() . ']' : $wgSideBarMenuConfig[ SBM_CONTROLS_SHOW ],
+				'default' => is_null( $GLOBALS['wgSideBarMenuConfig'][ SBM_CONTROLS_SHOW ] ) ? '[' . wfMessage( 'showtoc' )->escaped() . ']' : $wgSideBarMenuConfig[ SBM_CONTROLS_SHOW ],
 				'message' => 'sidebarmenu-param-show',
 				'aliases' => array( 'controls.show' ),
 			),
 			array(
 				'name' => 'hide',
-				'default' => is_null( $wgSideBarMenuConfig[ SBM_CONTROLS_HIDE ] ) ? '[' . wfMessage( 'hidetoc' )->escaped() . ']' : $wgSideBarMenuConfig[ SBM_CONTROLS_HIDE ],
+				'default' => is_null( $GLOBALS['wgSideBarMenuConfig'][ SBM_CONTROLS_HIDE ] ) ? '[' . wfMessage( 'hidetoc' )->escaped() . ']' : $wgSideBarMenuConfig[ SBM_CONTROLS_HIDE ],
 				'message' => 'sidebarmenu-param-hide',
 				'aliases' => array( 'controls.hide' ),
 			),
 			array(
 				'name' => 'animate',
-				'default' => $wgSideBarMenuConfig[ SBM_JS_ANIMATE ],
+				'default' => $GLOBALS['wgSideBarMenuConfig'][ SBM_JS_ANIMATE ],
 				'type' => 'boolean',
 				'message' => 'sidebarmenu-param-animate',
 				'aliases' => array( 'js.animate' ),
 			),
 			array(
 				'name' => 'editlink',
-				'default' => $wgSideBarMenuConfig[ SBM_EDIT_LINK ],
+				'default' => $GLOBALS['wgSideBarMenuConfig'][ SBM_EDIT_LINK ],
 				'type' => 'boolean',
 				'message' => 'sidebarmenu-param-editlink',
 			),
@@ -160,7 +162,7 @@ EOT;
 			),
 			array(
 				'name' => 'minimized',
-				'default' => $wgSideBarMenuConfig[ SBM_MINIMIZED ],
+				'default' => $GLOBALS['wgSideBarMenuConfig'][ SBM_MINIMIZED ],
 				'type' => 'boolean',
 				'message' => 'sidebarmenu-param-minimized',
 			),

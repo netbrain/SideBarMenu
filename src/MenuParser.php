@@ -143,8 +143,6 @@ class MenuParser {
 		//remove pre-/post- newline
 		$data = trim($data, "\n ");
 
-		//remove html comments from input
-		$data = preg_replace('/<!--(.|\s)*?-->/', '', $data);
 		return $data;
 	}
 
